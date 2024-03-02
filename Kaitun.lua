@@ -1869,6 +1869,7 @@ function FarmLevelOO()
     				end
     			end
     			else
+					CheckLevel()
 					_G.Doing = "Wait Monster Level"
                     TP(CFrameMon)
 			end
