@@ -1799,11 +1799,13 @@ function FarmLevelOO()
     		end
 			_G.Farm_Boss = true
 		elseif SelectMonster ~= nil then
+			CheckLevel()
 			GetQuest()
 			SelectMonster = nil
 			_G.Farm_Mon = nil
 		else
 			StatrMagnet = nil
+			CheckLevel()
 			GetQuest()
 		end
     elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
