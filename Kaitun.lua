@@ -29,7 +29,6 @@ local function SelectTeam()
         end
     end
 end
-local Lv = game:GetService("Players").LocalPlayer.Data.Level.Value
 
 
 repeat wait()
@@ -1435,7 +1434,8 @@ end
 spawn(function()
     pcall(function()
         while wait() do
-            if Lv >= 30 and Lv <= 80 then
+            if game:GetService("Players").LocalPlayer.Data.Level.Value >= 30 and game:GetService("Players").LocalPlayer.Data.Level.Value <= 80 then
+                FarmSky = true
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
                 if FindSkyMonster() then
                     v = FindSkyMonster()
@@ -1455,6 +1455,8 @@ spawn(function()
                 else
                     TP(Skywait)
                 end
+            else
+                FarmSky = false
             end
         end
     end)
