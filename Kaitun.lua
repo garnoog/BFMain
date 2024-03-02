@@ -1017,6 +1017,7 @@ function TP(p)
         game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = p
     end
     game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/300, Enum.EasingStyle.Linear),{CFrame = p}):Play()
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X, p.Y, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z)
 end
 
 function StopTween()
@@ -1165,9 +1166,103 @@ spawn(function()
         end)
     end
 end)
-
-
-
+spawn(function()
+	while wait() do
+		pcall(function()
+			if StatrMagnet then
+				for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+					if not string.find(v.Name,"Boss") and (v.HumanoidRootPart.Position-_G.PosMon.Position).Magnitude <= 350 then
+						if v.Humanoid:FindFirstChild("Animator") then
+							v.Humanoid.Animator:Destroy()
+						end
+						v.Humanoid:ChangeState(11)
+						v.HumanoidRootPart.CanCollide = false
+						v.HumanoidRootPart.CFrame = _G.PosMon
+						sethiddenproperty(game.Players.LocalPlayer, "MaximumSimulationRadius",  math.huge)
+						sethiddenproperty(game.Players.LocalPlayer, "SimulationRadius",  9e20)
+					end
+				end
+			end
+		end)
+	end
+end)
+game:GetService("RunService").Heartbeat:Connect(function()
+    if game:GetService("Players").LocalPlayer.Data.Points.Value > 0 then
+        if game.Players.localPlayer.Data.Stats.Melee.Level.Value < 2550 then
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AddPoint", "Melee", 9999999)
+        elseif game.Players.localPlayer.Data.Stats.Defense.Level.Value < 2500 then
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AddPoint", "Defense", 9999999)
+        end
+    end
+end)
+spawn(function()
+	while wait(2) do
+		pcall(function()
+		    if not game.Players.LocalPlayer.Character:FindFirstChild("HasBuso") then
+				game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buso")
+				else
+				game:GetService("ReplicatedStorage").Remotes.CommE:FireServer("Ken",true)
+			end
+		end)
+	end
+end)
+spawn(function()
+    while game:GetService("RunService").Stepped:wait() do
+		pcall(function()
+            for i, v in ipairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+                if v:IsA("BasePart") then
+                    v.CanCollide = false
+                end
+            end
+        end)
+    end
+end)
+function NPCPos()
+    for i,v in pairs(require(game:GetService("ReplicatedStorage").GuideModule)["Data"]["NPCList"]) do
+		if v["NPCName"] == require(game:GetService("ReplicatedStorage").GuideModule)["Data"]["LastClosestNPC"] then
+			return i["CFrame"]
+		end
+	end
+end
+function CheckQuest()
+    local Lvl = game:GetService("Players").LocalPlayer.Data.Level.Value
+    local IgnoreQuests = {"BartiloQuest", "Trainees", "MarineQuest", "CitizenQuest"}
+    local Quest = {}
+    local LevelReq = 0
+    for i,v in pairs(require(game:GetService("ReplicatedStorage").Quests)) do
+		for a,b in pairs(v) do
+		    for j, k in pairs(b["Task"]) do
+		    	if b["LevelReq"] <= Lvl and b["LevelReq"] >= LevelReq and not table.find(IgnoreQuests, i) and k > 1 then		            
+			    	Quest["QuestName"] = i
+			        Quest["ID"] = a
+			        Quest["MobName"] = j
+                    LevelReq = b["LevelReq"]
+		        end
+			end	
+		end
+	end
+	if LevelReq >= 700 and W1 then
+        Quest["MobName"] = "Galley Captain"
+        Quest["QuestName"] = "FountainQuest"
+        Quest["ID"] = 2
+    elseif LevelReq >= 1450 and W2 then
+        Quest["MobName"] = "Water Fighter"
+        Quest["QuestName"] = "ForgottenQuest"
+        Quest["ID"] = 2
+    end
+	return Quest
+end
+function GetQuest()
+    CheckLevel()
+    local questname = CheckQuest()["QuestName"]
+    local id = CheckQuest()["ID"]
+    if (NPCPos().Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
+        wait(.5)
+        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
+    else
+        TP(NPCPos())
+    end
+end
 Startk = true
 spawn(function()
     while wait() do
@@ -1184,32 +1279,16 @@ spawn(function()
                     repeat wait()
                         TP(CFrameQBoss)
                     until (CFrameQBoss.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 and game.Players.LocalPlayer.Character.Humanoid.Health > 0
-                    if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuestBoss, QuestLvBoss)
-                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-                    end
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuestBoss, QuestLvBoss)
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
                     _G.Farm_Boss = true
                 elseif SelectMonster ~= nil then
-                    CheckLevel()
-                    repeat wait()
-                        TP(CFrameQ)
-                    until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 and game.Players.LocalPlayer.Character.Humanoid.Health > 0
-                    if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
-                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-                    end
+                    GetQuest()
                     SelectMonster = nil
                     _G.Farm_Mon = nil
                 else
                     StatrMagnet = nil
-                    CheckLevel()
-                    repeat wait()
-                        TP(CFrameQ)
-                    until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
-                    if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
-                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-                    end
+                    GetQuest()
                 end
             elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
                 if _G.Farm_Boss then
@@ -1227,7 +1306,7 @@ spawn(function()
                                 repeat wait()
                                     EquipWeapon(Weapon)
                                     if (v.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 50 then
-                                        TP(v.HumanoidRootPart.CFrame * Cethod)
+                                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = (v.HumanoidRootPart.CFrame * Cethod)
                                     else
                                         TP(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
                                     end
@@ -1254,7 +1333,7 @@ spawn(function()
                                 repeat wait()
                                     EquipWeapon(Weapon)
                                     if (v.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 50 then
-                                        TP(v.HumanoidRootPart.CFrame * Cethod)
+                                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = (v.HumanoidRootPart.CFrame * Cethod)
                                     else
                                         TP(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
                                     end
