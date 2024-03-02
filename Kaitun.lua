@@ -1780,41 +1780,46 @@ function FarmSkyMonter()
 end
 function FarmLevelOO()
     pcall(function()
-    if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-		if _G.Farm_Boss then
-			_G.SelectBoss = nil
-			_G.Farm_Boss = nil
-			SelectMonster = nil
-			_G.Farm_Mon = nil
-		end
-		if _G.SelectBoss ~= nil and game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) or _G.SelectBoss ~= nil and game.ReplicatedStorage:FindFirstChild(_G.SelectBoss) then
-			CheckQuestBoss()
-			repeat wait()
-				_G.Doing = "Get Quest Boss"
-				TP(CFrameQBoss)
-			until (CFrameQBoss.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 and game.Players.LocalPlayer.Character.Humanoid.Health > 0
-			game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuestBoss, QuestLvBoss)
-			game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-			_G.Farm_Boss = true
-		elseif SelectMonster ~= nil then
-			CheckLevel()
-			repeat wait()
-				TP(CFrameQ)
-			until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
-			game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
-			game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-			SelectMonster = nil
-			_G.Farm_Mon = nil
-		else
-			StatrMagnet = nil
-			CheckLevel()
-			repeat wait()
-				TP(CFrameQ)
-			until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
-			game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
-			game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-		end
-    elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+		if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+			if _G.Farm_Boss then
+				_G.SelectBoss = nil
+				_G.Farm_Boss = nil
+				SelectMonster = nil
+				_G.Farm_Mon = nil
+			end
+			if _G.SelectBoss ~= nil and game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) or _G.SelectBoss ~= nil and game.ReplicatedStorage:FindFirstChild(_G.SelectBoss) then
+				CheckQuestBoss()
+				repeat wait()
+					TP(CFrameQBoss)
+				until (CFrameQBoss.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 and game.Players.LocalPlayer.Character.Humanoid.Health > 0
+				if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuestBoss, QuestLvBoss)
+					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+				end
+				_G.Farm_Boss = true
+			elseif SelectMonster ~= nil then
+				CheckLevel()
+				repeat wait()
+					TP(CFrameQ)
+				until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 and game.Players.LocalPlayer.Character.Humanoid.Health > 0
+				if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
+					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+				end
+				SelectMonster = nil
+				_G.Farm_Mon = nil
+			else
+				StatrMagnet = nil
+				CheckLevel()
+				repeat wait()
+					TP(CFrameQ)
+				until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+				if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
+					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+				end
+			end
+		elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
 		if _G.Farm_Boss then
 			if game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) then
 				for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
@@ -2652,7 +2657,7 @@ DummyHub.BorderSizePixel = 0
 DummyHub.Position = UDim2.new(0.0270000007, 0, 0.00999999978, 0)
 DummyHub.Size = UDim2.new(0, 269, 0, 19)
 DummyHub.Font = Enum.Font.FredokaOne
-DummyHub.Text = "Dummy Hub - Fully Fragment"
+DummyHub.Text = "Dummy Hub - Kaitun"
 DummyHub.TextColor3 = Color3.fromRGB(255, 255, 255)
 DummyHub.TextSize = 20.000
 
