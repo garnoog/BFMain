@@ -1365,7 +1365,7 @@ end)
 spawn(function()
     while wait() do
         pcall(function()
-            if getgenv().Config["Player Hunt"] then
+            if _G.Config['Player Hunt'] then
                 if Lv >= 30 and W1 then
                     if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
                             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("PlayerHunter")
@@ -1382,7 +1382,6 @@ spawn(function()
                                                     TP(v.HumanoidRootPart.CFrame * CFrame.new(0,2,20))
                                                 end
                                                 if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 30 then
-                                                    KillHuntQuest()
                                                     attackm = true
                                                 end
                                                 OpenPVP = true
