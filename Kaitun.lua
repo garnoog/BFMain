@@ -1313,6 +1313,7 @@ spawn(function()
                                     end
                                     attackm = true
                                 until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBoss) or not v.Parent or v.Humanoid.Health <= 0 or not Startk or Mix_Farm
+                                attackm = false
                             end
                         end
                     else
@@ -1340,6 +1341,7 @@ spawn(function()
                                     end
                                     attackm = true
                                 until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or not v.Parent or v.Humanoid.Health <= 0 or not Startk or Mix_Farm
+                                attackm = false
                                 Attack = nil
                             end
                         end
