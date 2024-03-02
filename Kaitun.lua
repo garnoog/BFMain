@@ -1239,7 +1239,7 @@ function AttackNoCD()
                         debug.setupvalue(AC.attack, 6, u9)
                         debug.setupvalue(AC.attack, 4, u7)
                         debug.setupvalue(AC.attack, 7, u10)
-                        task.wait()
+                        wait(0)
                         pcall(function()
                             if plr.Character:FindFirstChildOfClass("Tool") and AC.blades and AC.blades[1] then
                                 AC.animator.anims.basic[3]:Play(0.01,0.01,0.01)
