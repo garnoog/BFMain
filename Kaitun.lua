@@ -1101,7 +1101,7 @@ function EquipWeapon(ToolSe)
 end
 
 spawn(function()
-    while wait(1) do
+    while wait(.2) do
         pcall(function()
             local posce = math.random(1, 5)
             if posce == 1 then
@@ -1738,6 +1738,7 @@ function GetQuest()
         wait(.5)
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
     else
+		_G.Doing = "Get Quest Level"
         TP(NPCPos())
     end
 end
@@ -1755,6 +1756,7 @@ function FindSkyMonster()
     end
 end
 function FarmSkyMonter()
+	_G.Doing = "Farm Sky Monster"
     game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
     if FindSkyMonster() then
         v = FindSkyMonster()
@@ -1788,6 +1790,7 @@ function FarmLevelOO()
 		if _G.SelectBoss ~= nil and game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) or _G.SelectBoss ~= nil and game.ReplicatedStorage:FindFirstChild(_G.SelectBoss) then
 			CheckQuestBoss()
 			repeat wait()
+				_G.Doing = "Get Quest Boss"
 				TP(CFrameQBoss)
 			until (CFrameQBoss.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 and game.Players.LocalPlayer.Character.Humanoid.Health > 0
 			if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
@@ -1817,6 +1820,7 @@ function FarmLevelOO()
 						v.HumanoidRootPart.CanCollide = false
 						StatrMagnet = nil
 						repeat wait()
+							_G.Doing = "Farm Boss Level"
 						    v.HumanoidRootPart.Size = Vector3.new(50,50,50)
 							EquipWeapon(Weapon)
                     		if (v.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 50 then
@@ -1849,6 +1853,7 @@ function FarmLevelOO()
     					v.Humanoid.WalkSpeed = 0
     					v.HumanoidRootPart.CanCollide = false
     					repeat wait()
+							_G.Doing = "Farm Level"
     					    v.HumanoidRootPart.Size = Vector3.new(50,50,50)
     						EquipWeapon(Weapon)
                     		if (v.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 50 then
@@ -1862,6 +1867,7 @@ function FarmLevelOO()
     				end
     			end
     			else
+					_G.Doing = "Wait Monster Level"
                     TP(CFrameMon)
 			end
 		end
@@ -1881,6 +1887,7 @@ function FindPole()
     end
 end
 function FarmPole()
+	_G.Doing = "Farm Pole"
     if FindPole() then
         v = FindPole()
     	repeat wait()
@@ -1903,6 +1910,7 @@ function FindFruit()
     end
 end
 function CollectFruit()
+	_G.Doing = "Bring Fruit"
     if FindFruit() then
         v = FindFruit()
         repeat wait()
@@ -1911,6 +1919,7 @@ function CollectFruit()
     end
 end
 function SaberQuest()
+	_G.Doing = "Doing Saber Quest"
      game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
     if game:GetService("Workspace").Map.Jungle.Final.Part.Transparency == 0 then
         if game:GetService("Workspace").Map.Jungle.QuestPlates.Door.Transparency == 0 then
@@ -2007,6 +2016,7 @@ function FindSaber()
     end
 end
 function FarmSaber()
+	_G.Doing = "Get Saber"
     if FindSaber() then
         v = FindSaber()
     	repeat wait()
@@ -2035,6 +2045,7 @@ function FindBossWold2Quest()
     end
 end
 function DoingQuestWorld2()
+	_G.Doing = "Go to World 2"
     if game.Workspace.Map.Ice.Door.CanCollide == true and game.Workspace.Map.Ice.Door.Transparency == 0 then
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("DressrosaQuestProgress","Detective")
         EquipWeapon("Key")
@@ -2069,6 +2080,7 @@ function FindBossWorld2()
     end
 end
 function FarmBossWorld2()
+	_G.Doing = "Farm Boss"
     if FindBossWorld2() then
         v = FindBossWorld2()
     	repeat wait()
@@ -2081,7 +2093,6 @@ function FarmBossWorld2()
     		end
     		AttackNoCD()
     	until not Startk or not v or not v:FindFirstChild("Humanoid") or not v:FindFirstChild("HumanoidRootPart") or v.Humanoid.Health <= 0 
-    	
     end
 end
 function FindCore()
@@ -2097,6 +2108,7 @@ function FindCore()
     end
 end
 function FarmCore()
+	_G.Doing = "Farm Factory"
     if FindCore() then
         v = FindCore()
     	repeat wait(.1)
@@ -2121,6 +2133,7 @@ function FindMonBartilo1()
     end
 end
 function BartiloQuest1()
+	_G.Doing = "Doing Bartilo Quest 1/3"
     if string.find(game.Players.LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, "Swan Pirates") and string.find(game.Players.LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, "50") and game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
         if FindMonBartilo1() then
             v = FindMonBartilo1()
@@ -2157,6 +2170,7 @@ function FindMonBartilo2()
     end
 end
 function BartiloQuest2()
+	_G.Doing = "Doing Bartilo Quest 2/3"
     if FindMonBartilo2() then
         v = FindMonBartilo2()
         repeat wait()
@@ -2173,6 +2187,7 @@ function BartiloQuest2()
     end
 end
 function BartiloQuest3()
+	_G.Doing = "Doing Bartilo Quest 3/3"
     game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1850.49329, 13.1789551, 1750.89685)
 	wait()
 	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-1858.87305, 19.3777466, 1712.01807)
@@ -2286,6 +2301,7 @@ function Buy_Chip()
 	game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("RaidsNpc", "Select", "Flame")
 end
 function StartDungeon()
+	_G.Doing = "Start Raid"
     if W2 then
         fireclickdetector(game:GetService("Workspace").Map.CircleIsland.RaidSummon2.Button.Main.ClickDetector)
         repeat wait(1)
@@ -2313,18 +2329,23 @@ function NextIsland()
     Killaura()
     if FindIsland5() then
         v = FindIsland5()
+		_G.Doing = "Auto Raid | Ialand 5"
         TP(CFrame.new(v.CFrame.X, 100, v.CFrame.Z))
     elseif FindIsland4() then
         v = FindIsland4()
+		_G.Doing = "Auto Raid | Ialand 4"
         TP(CFrame.new(v.CFrame.X, 100, v.CFrame.Z))
     elseif FindIsland3() then
         v = FindIsland3()
+		_G.Doing = "Auto Raid | Ialand 3"
         TP(CFrame.new(v.CFrame.X, 100, v.CFrame.Z))
     elseif FindIsland2() then
         v = FindIsland2()
+		_G.Doing = "Auto Raid | Ialand 2"
         TP(CFrame.new(v.CFrame.X, 100, v.CFrame.Z))
     elseif FindIsland1() then
         v = FindIsland1()
+		_G.Doing = "Auto Raid | Ialand 1"
         TP(CFrame.new(v.CFrame.X, 100, v.CFrame.Z))
     end
 end
@@ -2355,6 +2376,7 @@ function FindIndraQuest()
     end
 end
 function gotoworld3()
+	_G.Doing = "Doing Quest World 3"
     if FindIndraQuest() then
         v = FindIndraQuest()
         repeat wait()
@@ -2413,6 +2435,7 @@ function DoingAllMelee()
     end
 end
 function LibraryKey()
+	_G.Doing = "Unlock Death Step Room"
     EquipWeapon("Library Key")
     if (Vector3.new(6375.31152, 296.759796, -6845.37256, -0.864894807, 9.65125153e-08, -0.501953125, 1.00555702e-07, 1, 1.90105478e-08, 0.501953125, -3.40321265e-08, -0.864894807)-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 10 then
         TP(CFrame.new(6375.31152, 296.759796, -6845.37256, -0.864894807, 9.65125153e-08, -0.501953125, 1.00555702e-07, 1, 1.90105478e-08, 0.501953125, -3.40321265e-08, -0.864894807))
@@ -2421,6 +2444,7 @@ function LibraryKey()
     end
 end
 function HiddenKey()
+	_G.Doing = "Unlock Rengoku"
     EquipWeapon("Hidden Key")
     if (Vector3.new(1347.7124, 37.3751602, -1325.6488)-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 10 then
         TP(CFrame.new(6571.1201171875, 299.23028564453, -6967.841796875))
@@ -2459,6 +2483,7 @@ spawn(function()
                                                 if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,v.Name) then
                                                     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                                                     repeat wait()
+														_G.Doing = "Doing Players Hunter Quest"
                                                         EquipWeapon(Weapon)
                                                         if game:GetService("Players")["LocalPlayer"].PlayerGui.Main.PvpDisabled.Visible == false then
                                                             TP(v.HumanoidRootPart.CFrame * CFrame.new(0,2,20))
@@ -2570,4 +2595,247 @@ spawn(function()
             end
         end)
     end)
+end)
+
+local UIFRAMGMENT = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
+local MainCorner = Instance.new("UICorner")
+local DummyHub = Instance.new("TextLabel")
+local _ = Instance.new("Frame")
+local Enble = Instance.new("TextLabel")
+local Total = Instance.new("TextLabel")
+local Doing = Instance.new("TextLabel")
+local Elapsed = Instance.new("TextLabel")
+local Profile = Instance.new("ImageLabel")
+local UICorner = Instance.new("UICorner")
+local Name = Instance.new("TextLabel")
+local Discord = Instance.new("TextButton")
+local UICorner_2 = Instance.new("UICorner")
+local CloseUI = Instance.new("ImageButton")
+local UICorner_3 = Instance.new("UICorner")
+local WSB = Instance.new("TextButton")
+
+--Properties:
+
+UIFRAMGMENT.Name = "UI FRAMGMENT"
+UIFRAMGMENT.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+UIFRAMGMENT.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Main.Name = "Main"
+Main.Parent = UIFRAMGMENT
+Main.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Main.BorderSizePixel = 0
+Main.LayoutOrder = -5
+Main.Position = UDim2.new(0.350071907, 0, 0.321428567, 0)
+Main.Size = UDim2.new(0, 300, 0, 180)
+Main.Style = Enum.FrameStyle.RobloxSquare
+
+MainCorner.Name = "MainCorner"
+MainCorner.Parent = Main
+
+DummyHub.Name = "DummyHub"
+DummyHub.Parent = Main
+DummyHub.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+DummyHub.BackgroundTransparency = 1.000
+DummyHub.BorderColor3 = Color3.fromRGB(0, 0, 0)
+DummyHub.BorderSizePixel = 0
+DummyHub.Position = UDim2.new(0.0270000007, 0, 0.00999999978, 0)
+DummyHub.Size = UDim2.new(0, 269, 0, 19)
+DummyHub.Font = Enum.Font.FredokaOne
+DummyHub.Text = "Dummy Hub - Fully Fragment"
+DummyHub.TextColor3 = Color3.fromRGB(255, 255, 255)
+DummyHub.TextSize = 20.000
+
+_.Name = "_"
+_.Parent = Main
+_.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+_.BorderColor3 = Color3.fromRGB(0, 0, 0)
+_.BorderSizePixel = 0
+_.Position = UDim2.new(0, 0, 0.150000006, 0)
+_.Size = UDim2.new(0, 285, 0, 3)
+
+Enble.Name = "Enble"
+Enble.Parent = Main
+Enble.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Enble.BackgroundTransparency = 1.000
+Enble.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Enble.BorderSizePixel = 0
+Enble.Position = UDim2.new(0, 0, 0.178000003, 0)
+Enble.Size = UDim2.new(0, 285, 0, 30)
+Enble.Font = Enum.Font.FredokaOne
+Enble.Text = "Bile : | Fragment : "
+Enble.TextColor3 = Color3.fromRGB(255, 255, 255)
+Enble.TextSize = 14.000
+Enble.TextXAlignment = Enum.TextXAlignment.Left
+
+Total.Name = "Total"
+Total.Parent = Main
+Total.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Total.BackgroundTransparency = 1.000
+Total.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Total.BorderSizePixel = 0
+Total.Position = UDim2.new(0, 0, 0.300000012, 0)
+Total.Size = UDim2.new(0, 285, 0, 30)
+Total.Font = Enum.Font.FredokaOne
+Total.Text = "Level : "
+Total.TextColor3 = Color3.fromRGB(255, 255, 255)
+Total.TextSize = 14.000
+Total.TextXAlignment = Enum.TextXAlignment.Left
+
+Doing.Name = "Doing"
+Doing.Parent = Main
+Doing.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Doing.BackgroundTransparency = 1.000
+Doing.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Doing.BorderSizePixel = 0
+Doing.Position = UDim2.new(0, 0, 0.430000007, 0)
+Doing.Size = UDim2.new(0, 285, 0, 30)
+Doing.Font = Enum.Font.FredokaOne
+Doing.Text = "Doing : "
+Doing.TextColor3 = Color3.fromRGB(255, 255, 255)
+Doing.TextSize = 14.000
+Doing.TextXAlignment = Enum.TextXAlignment.Left
+
+Elapsed.Name = "Elapsed"
+Elapsed.Parent = Main
+Elapsed.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Elapsed.BackgroundTransparency = 1.000
+Elapsed.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Elapsed.BorderSizePixel = 0
+Elapsed.Position = UDim2.new(0, 0, 0.550000012, 0)
+Elapsed.Size = UDim2.new(0, 285, 0, 30)
+Elapsed.Font = Enum.Font.FredokaOne
+Elapsed.Text = "Times : "
+Elapsed.TextColor3 = Color3.fromRGB(255, 255, 255)
+Elapsed.TextSize = 14.000
+Elapsed.TextXAlignment = Enum.TextXAlignment.Left
+
+Profile.Name = "Profile"
+Profile.Parent = Main
+Profile.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Profile.BackgroundTransparency = 1.000
+Profile.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Profile.BorderSizePixel = 0
+Profile.Position = UDim2.new(0.579999983, 0, 0.340000004, 0)
+Profile.Size = UDim2.new(0, 122, 0, 110)
+Profile.Image = "rbxassetid://16384956178"
+
+UICorner.Parent = Profile
+
+Name.Name = "Name"
+Name.Parent = Main
+Name.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Name.BackgroundTransparency = 1.000
+Name.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Name.BorderSizePixel = 0
+Name.Position = UDim2.new(0, 0, 0.178000003, 0)
+Name.Size = UDim2.new(0, 285, 0, 30)
+Name.Font = Enum.Font.FredokaOne
+Name.Text = "@Name | DisplayName"
+Name.TextColor3 = Color3.fromRGB(255, 255, 255)
+Name.TextSize = 14.000
+Name.TextXAlignment = Enum.TextXAlignment.Right
+
+Discord.Name = "Discord"
+Discord.Parent = Main
+Discord.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Discord.BackgroundTransparency = 0.600
+Discord.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Discord.BorderSizePixel = 0
+Discord.Position = UDim2.new(0, 30, 0.779999971, 0)
+Discord.Size = UDim2.new(0, 100, 0, 35)
+Discord.Font = Enum.Font.FredokaOne
+Discord.Text = "Discord"
+Discord.TextColor3 = Color3.fromRGB(255, 255, 255)
+Discord.TextSize = 14.000
+
+UICorner_2.Parent = Discord
+
+CloseUI.Name = "Close UI"
+CloseUI.Parent = UIFRAMGMENT
+CloseUI.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+CloseUI.BackgroundTransparency = 0.200
+CloseUI.BorderColor3 = Color3.fromRGB(0, 0, 0)
+CloseUI.BorderSizePixel = 0
+CloseUI.Position = UDim2.new(0.063000001, 0, 0.169, 0)
+CloseUI.Size = UDim2.new(0, 50, 0, 50)
+CloseUI.Image = "rbxassetid://16384956178"
+
+UICorner_3.Parent = CloseUI
+
+WSB.Name = "WSB"
+WSB.Parent = UIFRAMGMENT
+WSB.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+WSB.BackgroundTransparency = 1.000
+WSB.BorderColor3 = Color3.fromRGB(0, 0, 0)
+WSB.BorderSizePixel = 0
+WSB.Position = UDim2.new(0.318622172, 0, 0.321428567, 0)
+WSB.Size = UDim2.new(0, 20, 0, 20)
+WSB.Font = Enum.Font.SourceSans
+WSB.Text = "🔴"
+WSB.TextColor3 = Color3.fromRGB(0, 0, 0)
+WSB.TextScaled = true
+WSB.TextSize = 14.000
+WSB.TextWrapped = true
+
+Name.Text = "@"..game.Players.LocalPlayer.Name.." | "..game.Players.LocalPlayer.DisplayName
+function formatNumber(num)
+    if num >= 1000000 then
+        return string.format("%.2fM", num / 1000000)
+    elseif num >= 1000 then
+        return string.format("%.2fK", num / 1000)
+    else
+        return tostring(num)
+    end
+end
+
+spawn(function()
+    while wait(.1) do
+        pcall(function()
+            Total.Text = "Level : "..tostring(game:GetService("Players").LocalPlayer.Data.Level.Value)
+        end)
+    end
+end)
+spawn(function()
+    while wait(.1) do
+        pcall(function()
+            Enble.Text = "Bile : "..tostring(formatNumber(game:GetService("Players").LocalPlayer.Data.Beli.Value).." | Fragment : "..tostring(formatNumber(game:GetService("Players").LocalPlayer.Data.Fragments.Value)))
+        end)
+    end
+end)
+spawn(function()
+    while wait() do
+        pcall(function()
+            Doing.Text = "Doing : ".._G.Doing
+        end)
+    end
+end)
+spawn(function()
+    while wait() do
+        pcall(function()
+            local scripttime = game.Workspace.DistributedGameTime
+            local seconds = scripttime % 60
+            local minutes = math.floor(scripttime / 60 % 60)
+            local hours = math.floor(scripttime / 3600)
+            local tempo = string.format("%02d:%02d:%02d", hours, minutes, seconds)
+            Elapsed.Text = "Times : " .. tostring(tempo)
+        end)
+    end
+end)
+WSB.MouseButton1Click:Connect(function()
+    if WSB.Text == "🔴" then
+        WSB.Text = "🟢"
+        game:GetService("RunService"):Set3dRenderingEnabled(false)
+    elseif WSB.Text == "🟢" then
+        WSB.Text = "🔴"
+        game:GetService("RunService"):Set3dRenderingEnabled(true)
+    end
+end)
+CloseUI.MouseButton1Click:Connect(function()
+    if Main.Visible == false then
+        Main.Visible = true
+    else
+        Main.Visible = false
+    end
 end)
