@@ -1366,7 +1366,7 @@ spawn(function()
     while wait() do
         pcall(function()
             if getgenv().Config["Player Hunt"] then
-                if Lv >= 80 and W1 then
+                if Lv >= 30 and W1 then
                     if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
                             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("PlayerHunter")
                     elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
