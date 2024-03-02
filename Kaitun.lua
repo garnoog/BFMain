@@ -29,10 +29,8 @@ local function SelectTeam()
         end
     end
 end
+local Lv = game:GetService("Players").LocalPlayer.Data.Level.Value
 
-getgenv().Config = {
-    ["Player Hunt"] = true
-}
 
 repeat wait()
     if not game.Players.LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
@@ -1270,119 +1268,127 @@ function GetQuest()
     end
 end
 Startk = true
-function FarmLevel()
-    pcall(function()
-        if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-            if _G.Farm_Boss then
-                _G.SelectBoss = nil
-                _G.Farm_Boss = nil
-                SelectMonster = nil
-                _G.Farm_Mon = nil
-            end
-            if _G.SelectBoss ~= nil and game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) or _G.SelectBoss ~= nil and game.ReplicatedStorage:FindFirstChild(_G.SelectBoss) then
-                CheckQuestBoss()
-                repeat wait()
-                    TP(CFrameQBoss)
-                until (CFrameQBoss.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 and game.Players.LocalPlayer.Character.Humanoid.Health > 0
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuestBoss, QuestLvBoss)
-                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-                _G.Farm_Boss = true
-            elseif SelectMonster ~= nil then
-                GetQuest()
-                SelectMonster = nil
-                _G.Farm_Mon = nil
-            else
-                StatrMagnet = nil
-                GetQuest()
-            end
-        elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-            if _G.Farm_Boss then
-                if game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) then
-                    for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-                        if v.Name == _G.SelectBoss and v.Humanoid.Health > 0 then
-                            if v.Humanoid:FindFirstChild("Animator") then
-                                v.Humanoid.Animator:Destroy()
-                            end
-                            v.Humanoid:ChangeState(11)
-                            v.Humanoid.JumpPower = 0
-                            v.Humanoid.WalkSpeed = 0
-                            v.HumanoidRootPart.CanCollide = false
-                            StatrMagnet = nil
-                            repeat wait()
-                                EquipWeapon(Weapon)
-                                if (v.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 50 then
-                                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = (v.HumanoidRootPart.CFrame * Cethod)
-                                else
-                                    TP(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
-                                end
-                                attackm = true
-                            until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBoss) or not v.Parent or v.Humanoid.Health <= 0 or not Startk or Mix_Farm
-                            attackm = false
-                        end
-                    end
-                else
-                    TP(CFrameBoss*CFrame.new(0,40,0))
-                end
-            else
-                if game.Workspace.Enemies:FindFirstChild(Ms) then
-                    for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-                        if v.Name == Ms and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-                            _G.PosMon = v.HumanoidRootPart.CFrame
-                            StatrMagnet = true
-                            if v.Humanoid:FindFirstChild("Animator") then
-                                v.Humanoid.Animator:Destroy()
-                            end
-                            v.Humanoid:ChangeState(11)
-                            v.Humanoid.JumpPower = 0
-                            v.Humanoid.WalkSpeed = 0
-                            v.HumanoidRootPart.CanCollide = false
-                            repeat wait()
-                                EquipWeapon(Weapon)
-                                if (v.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 50 then
-                                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = (v.HumanoidRootPart.CFrame * Cethod)
-                                else
-                                    TP(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
-                                end
-                                attackm = true
-                            until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or not v.Parent or v.Humanoid.Health <= 0 or not Startk or Mix_Farm
-                            attackm = false
-                            Attack = nil
-                        end
-                    end
-                    else
-                        TP(CFrameMon)
-                end
-            end
-        end
-    end)
-end
+
 spawn(function()
     while wait() do
-        FarmLevel()
-        if getgenv().Config["Player Hunt"] then
-            if Lv >= 80 and W1 then
-                if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("PlayerHunter")
-                elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
-                    for i,v in pairs(game:GetService("Workspace").Characters:GetChildren()) do
-                        if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,v.Name) then
-                             for i,v in pairs(game:GetService("Workspace").Characters:GetChildren()) do
-                                if game:GetService("Workspace").Characters:FindFirstChild(v.Name) then
-                                    if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,v.Name) then
-                                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+        if W1 or W2 or W3 then
+            if not FarmSky then
+                pcall(function()
+                    if game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+                        if _G.Farm_Boss then
+                            _G.SelectBoss = nil
+                            _G.Farm_Boss = nil
+                            SelectMonster = nil
+                            _G.Farm_Mon = nil
+                        end
+                        if _G.SelectBoss ~= nil and game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) or _G.SelectBoss ~= nil and game.ReplicatedStorage:FindFirstChild(_G.SelectBoss) then
+                            CheckQuestBoss()
+                            repeat wait()
+                                TP(CFrameQBoss)
+                            until (CFrameQBoss.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 and game.Players.LocalPlayer.Character.Humanoid.Health > 0
+                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuestBoss, QuestLvBoss)
+                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+                            _G.Farm_Boss = true
+                        elseif SelectMonster ~= nil then
+                            GetQuest()
+                            SelectMonster = nil
+                            _G.Farm_Mon = nil
+                        else
+                            StatrMagnet = nil
+                            GetQuest()
+                        end
+                    elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+                        if _G.Farm_Boss then
+                            if game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) then
+                                for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+                                    if v.Name == _G.SelectBoss and v.Humanoid.Health > 0 then
+                                        if v.Humanoid:FindFirstChild("Animator") then
+                                            v.Humanoid.Animator:Destroy()
+                                        end
+                                        v.Humanoid:ChangeState(11)
+                                        v.Humanoid.JumpPower = 0
+                                        v.Humanoid.WalkSpeed = 0
+                                        v.HumanoidRootPart.CanCollide = false
+                                        StatrMagnet = nil
                                         repeat wait()
                                             EquipWeapon(Weapon)
-                                            if game:GetService("Players")["LocalPlayer"].PlayerGui.Main.PvpDisabled.Visible == false then
-                                                TP(v.HumanoidRootPart.CFrame * CFrame.new(0,2,20))
+                                            if (v.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 50 then
+                                                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = (v.HumanoidRootPart.CFrame * Cethod)
+                                            else
+                                                TP(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
                                             end
-                                            if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 30 then
-                                                KillHuntQuest()
-                                                AttackNoCD()
+                                            attackm = true
+                                        until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBoss) or not v.Parent or v.Humanoid.Health <= 0 or not Startk or Mix_Farm
+                                        attackm = false
+                                    end
+                                end
+                            else
+                                TP(CFrameBoss*CFrame.new(0,40,0))
+                            end
+                        else
+                            if game.Workspace.Enemies:FindFirstChild(Ms) then
+                                for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+                                    if v.Name == Ms and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                                        _G.PosMon = v.HumanoidRootPart.CFrame
+                                        StatrMagnet = true
+                                        if v.Humanoid:FindFirstChild("Animator") then
+                                            v.Humanoid.Animator:Destroy()
+                                        end
+                                        v.Humanoid:ChangeState(11)
+                                        v.Humanoid.JumpPower = 0
+                                        v.Humanoid.WalkSpeed = 0
+                                        v.HumanoidRootPart.CanCollide = false
+                                        repeat wait()
+                                            EquipWeapon(Weapon)
+                                            if (v.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 50 then
+                                                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = (v.HumanoidRootPart.CFrame * Cethod)
+                                            else
+                                                TP(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
                                             end
-                                            OpenPVP = true
-                                        until v.Humanoid.Health <= 0 or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false or not Startk
-                                        OpenPVP = false
-                                        
+                                            attackm = true
+                                        until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or not v.Parent or v.Humanoid.Health <= 0 or not Startk or Mix_Farm
+                                        attackm = false
+                                        Attack = nil
+                                    end
+                                end
+                                else
+                                    TP(CFrameMon)
+                            end
+                        end
+                    end
+                end)
+            end
+        end
+    end
+end)
+spawn(function()
+    while wait() do
+        pcall(function()
+            if getgenv().Config["Player Hunt"] then
+                if Lv >= 80 and W1 then
+                    if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+                            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("PlayerHunter")
+                    elseif game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == true then
+                        for i,v in pairs(game:GetService("Workspace").Characters:GetChildren()) do
+                            if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,v.Name) then
+                                 for i,v in pairs(game:GetService("Workspace").Characters:GetChildren()) do
+                                    if game:GetService("Workspace").Characters:FindFirstChild(v.Name) then
+                                        if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,v.Name) then
+                                            v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                                            repeat wait()
+                                                EquipWeapon(Weapon)
+                                                if game:GetService("Players")["LocalPlayer"].PlayerGui.Main.PvpDisabled.Visible == false then
+                                                    TP(v.HumanoidRootPart.CFrame * CFrame.new(0,2,20))
+                                                end
+                                                if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 30 then
+                                                    KillHuntQuest()
+                                                    attackm = true
+                                                end
+                                                OpenPVP = true
+                                            until v.Humanoid.Health <= 0 or game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false or not Startk
+                                            OpenPVP = false
+                                            attackm = false
+                                        end
                                     end
                                 end
                             end
@@ -1390,6 +1396,66 @@ spawn(function()
                     end
                 end
             end
+        end)
+    end
+end)
+
+spawn(function()
+    while wait() do
+        pcall(function()
+            if OpenPVP then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("EnablePvp")
+            end
+        end)
+    end
+end)
+spawn(function()
+    while wait(1) do
+     if Skywaitw == 1 then
+         Skywaitw = 2
+         Skywait = CFrame.new(-4714.62744140625, 883.1715087890625, -1938.22705078125)
+     else
+         Skywaitw = 1
+         Skywait = CFrame.new(-7687.64501953125, 5601.17236328125, -441.61865234375)
         end
     end
+ end)
+function FindSkyMonster()
+    for i,v in pairs(game:GetService("Workspace").Enemies:GetChildren()) do
+        if table.find({"God's Guard","Shanda"}, v.Name) and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+            return v
+        end
+    end
+    for i,v in pairs(game:GetService("ReplicatedStorage"):GetChildren()) do
+        if table.find({"God's Guard","Shanda"}, v.Name) and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+            return v
+        end
+    end
+end
+spawn(function()
+    pcall(function()
+        while wait() do
+            if Lv >= 30 and Lv <= 80 then
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("AbandonQuest")
+                if FindSkyMonster() then
+                    v = FindSkyMonster()
+                    StatrMagnet = true
+                    _G.PosMon = v.HumanoidRootPart.CFrame
+                    repeat wait()
+                        EquipWeapon(Weapon)
+                        if (v.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 50 then
+                            TP(v.HumanoidRootPart.CFrame * Cethod)
+                        else
+                            TP(v.HumanoidRootPart.CFrame)
+                        end
+                        attackm = true
+                    until not Startk or not v or not v:FindFirstChild("Humanoid") or not v:FindFirstChild("HumanoidRootPart") or v.Humanoid.Health <= 0 
+                    attackm = false
+                    StatrMagnet = false
+                else
+                    TP(Skywait)
+                end
+            end
+        end
+    end)
 end)
