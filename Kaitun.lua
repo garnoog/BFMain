@@ -2813,7 +2813,7 @@ spawn(function()
     while wait(.1) do
         pcall(function()
             Enble.Text = "Bile : "..tostring(formatNumber(game:GetService("Players").LocalPlayer.Data.Beli.Value)).." | Fragment : "..tostring(formatNumber(game:GetService("Players").LocalPlayer.Data.Fragments.Value))
-			Name.Text = ""
+			Name.Text = "A"
         end)
     end
 end)
