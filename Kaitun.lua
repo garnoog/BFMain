@@ -2666,7 +2666,7 @@ Enble.BorderSizePixel = 0
 Enble.Position = UDim2.new(0, 0, 0.178000003, 0)
 Enble.Size = UDim2.new(0, 285, 0, 30)
 Enble.Font = Enum.Font.FredokaOne
-Enble.Text = "Bile : | Fragment : "
+Enble.Text = "Bile : "
 Enble.TextColor3 = Color3.fromRGB(255, 255, 255)
 Enble.TextSize = 14.000
 Enble.TextXAlignment = Enum.TextXAlignment.Left
@@ -2734,7 +2734,7 @@ Name.BorderSizePixel = 0
 Name.Position = UDim2.new(0, 0, 0.178000003, 0)
 Name.Size = UDim2.new(0, 285, 0, 30)
 Name.Font = Enum.Font.FredokaOne
-Name.Text = "@Name | DisplayName"
+Name.Text = "Fragment : "
 Name.TextColor3 = Color3.fromRGB(255, 255, 255)
 Name.TextSize = 14.000
 Name.TextXAlignment = Enum.TextXAlignment.Right
@@ -2781,7 +2781,6 @@ WSB.TextScaled = true
 WSB.TextSize = 14.000
 WSB.TextWrapped = true
 
-Name.Text = "@"..game.Players.LocalPlayer.Name.." | "..game.Players.LocalPlayer.DisplayName
 function formatNumber(num)
     if num >= 1000000 then
         return string.format("%.2fM", num / 1000000)
@@ -2802,7 +2801,8 @@ end)
 spawn(function()
     while wait(.1) do
         pcall(function()
-            Enble.Text = "Bile : "..tostring(formatNumber(game:GetService("Players").LocalPlayer.Data.Beli.Value).." | Fragment : "..tostring(formatNumber(game:GetService("Players").LocalPlayer.Data.Fragments.Value)))
+            Enble.Text = "Bile : "..tostring(formatNumber(game:GetService("Players").LocalPlayer.Data.Beli.Value))
+			Name.Text =  "Fragment : "..tostring(formatNumber(game:GetService("Players").LocalPlayer.Data.Fragments.Value))
         end)
     end
 end)
