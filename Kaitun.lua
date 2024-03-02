@@ -2492,7 +2492,7 @@ spawn(function()
                                                 if string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text,v.Name) then
                                                     v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                                                     repeat wait()
-														_G.Doing = "Doing Players Hunter Quest"
+														_G.Doing = "Players Hunter Quest"
                                                         EquipWeapon(Weapon)
                                                         if game:GetService("Players")["LocalPlayer"].PlayerGui.Main.PvpDisabled.Visible == false then
                                                             TP(v.HumanoidRootPart.CFrame * CFrame.new(0,2,20))
