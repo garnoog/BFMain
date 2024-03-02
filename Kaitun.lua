@@ -47,6 +47,7 @@ spawn(function()
         game:GetService("CoreGui").RobloxPromptGui.promptOverlay.ChildAdded:Connect(function(child)
     		if child.Name == 'ErrorPrompt' and child:FindFirstChild('MessageArea') and child.MessageArea:FindFirstChild("ErrorFrame") then
     		    Startk = false
+                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X, 22000 ,game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z)
     		    wait(1)
     			game:GetService("TeleportService"):Teleport(game.PlaceId)
     		end
