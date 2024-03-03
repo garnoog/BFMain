@@ -1823,14 +1823,17 @@ function FarmLevelOO()
     			end
     			else
 					_G.Doing = "Wait Monster Level"
-                    for i,v in pairs(game:GetService("Workspace")["_WorldOrigin"].EnemySpawns:GetChildren()) do
+                    local spawnPoints = game:GetService("Workspace")["_WorldOrigin"].EnemySpawns:GetChildren()
+                    for i = 1, #spawnPoints do
+                        local v = spawnPoints[i]
                         if string.find(v.Name, Ms) then
                             while (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Position).Magnitude >= 10 and not game.Workspace.Enemies:FindFirstChild(Ms) and Startk do
-                                TP(v.CFrame * CFrame.new(0, 40, 0))
+                                TP(v.CFrame * CFrame.new(0, 20, 0))
                                 task.wait() -- ความหน่วงเวลาหลังจากที่ย้ายตำแหน่ง
                             end
                         end
                     end
+
 			end
 		end
 	end
