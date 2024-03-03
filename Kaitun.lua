@@ -1825,9 +1825,9 @@ function FarmLevelOO()
 					_G.Doing = "Wait Monster Level"
                     for i,v in pairs(game:GetService("Workspace")["_WorldOrigin"].EnemySpawns:GetChildren()) do
                         if string.find(v.Name,Ms) then
-                            if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Position).Magnitude >= 10 then
+                            repeat task.wait()
                                 TP(v.CFrame * CFrame.new(0,40,0))
-                            end
+                            until (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Position).Magnitude < 10 or game.Workspace.Enemies:FindFirstChild(Ms) or not Startk
                         end
                     end
 			end
