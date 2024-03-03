@@ -1088,7 +1088,7 @@ spawn(function()
                 if game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip") then
                     StopTween()
                     game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip"):Destroy()
-                    game:GetService("Workspace"):FindFirstChild("Partteen").CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,999999,0)
+                    game:GetService("Workspace"):FindFirstChild("Partteen").CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,99999999999,0)
                 end
             end
         end)
@@ -1248,7 +1248,7 @@ function AttackNoCD()
                         debug.setupvalue(AC.attack, 6, u9)
                         debug.setupvalue(AC.attack, 4, u7)
                         debug.setupvalue(AC.attack, 7, u10)
-                        wait(0)
+                        task.wait(0)
                         pcall(function()
                             if plr.Character:FindFirstChildOfClass("Tool") and AC.blades and AC.blades[1] then
                                 AC.animator.anims.basic[3]:Play(0.01,0.01,0.01)
@@ -1837,14 +1837,12 @@ function FarmLevelOO()
     			end
     			else
 					_G.Doing = "Wait Monster Level"
-                    local spawnPoints = game:GetService("Workspace")["_WorldOrigin"].EnemySpawns:GetChildren()
-                    for i = 1, #spawnPoints do
-                        local v = spawnPoints[i]
-                        if string.find(v.Name, Ms) then
-                            while (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Position).Magnitude >= 10 and not game.Workspace.Enemies:FindFirstChild(Ms) and Startk do
-                                TP(v.CFrame * CFrame.new(0, 20, 0))
-                                task.wait() -- ความหน่วงเวลาหลังจากที่ย้ายตำแหน่ง
-                            end
+                    for i,v in pairs(game:GetService("Workspace")["_WorldOrigin"].EnemySpawns:GetChildren()) do
+                        if string.find(v.Name,Ws) then
+                            repeat task.wait()
+                                game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = (v.CFrame * CFrame.new(0,40,0))
+                            until (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Position).Magnitude < 10 or game.Workspace.Enemies:FindFirstChild(Ws) or not Startk
+                            v:Destroy()
                         end
                     end
 
