@@ -1076,7 +1076,7 @@ spawn(function()
             if _G.Clip or Startk then
                 game:GetService("Players").LocalPlayer.Character.Humanoid.Sit = false
                 game:GetService("ReplicatedStorage").Assets.GUI.DamageCounter.Enabled = false
-                --game:GetService("Workspace"):FindFirstChild("Partteen").CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-3,0)
+                game:GetService("Workspace"):FindFirstChild("Partteen").CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-3,0)
                 if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip") then
                     local Noclip = Instance.new("BodyVelocity")
                     Noclip.Name = "BodyClip"
@@ -1838,10 +1838,10 @@ function FarmLevelOO()
     			else
 					_G.Doing = "Wait Monster Level"
                     for i,v in pairs(game:GetService("Workspace")["_WorldOrigin"].EnemySpawns:GetChildren()) do
-                        if string.find(v.Name,Ws) then
+                        if string.find(v.Name,Ms) then
                             repeat task.wait()
                                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = (v.CFrame * CFrame.new(0,40,0))
-                            until (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Position).Magnitude < 10 or game.Workspace.Enemies:FindFirstChild(Ws) or not Startk
+                            until (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Position).Magnitude < 10 or game.Workspace.Enemies:FindFirstChild(Ms) or not Startk
                         end
                     end
 
