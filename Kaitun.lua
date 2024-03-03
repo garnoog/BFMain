@@ -2452,10 +2452,7 @@ spawn(function()
 														_G.Doing = "Players Hunter Quest"
                                                         EquipWeapon(Weapon)
                                                         if game:GetService("Players")["LocalPlayer"].PlayerGui.Main.PvpDisabled.Visible == false then
-                                                            TP(v.HumanoidRootPart.CFrame * CFrame.new(0,0,2))
-                                                            TP(v.HumanoidRootPart.CFrame * CFrame.new(0,0,-2))
-                                                            TP(v.HumanoidRootPart.CFrame * CFrame.new(2,0,0))
-                                                            TP(v.HumanoidRootPart.CFrame * CFrame.new(-2,0,0))
+                                                            TP(CFrame.new(v.HumanoidRootPart.Position + Vector3.new(math.random(-5,5), 0, math.random(-5,5))))
                                                         else
                                                             StopTween()
                                                         end
