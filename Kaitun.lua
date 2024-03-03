@@ -1058,12 +1058,25 @@ spawn(function()
     end
 end)
 
+do
+local NM = game:GetService("Workspace"):FindFirstChild("Partteen")
+if NM then
+    NM:Destroy()
+end
+end
+local Partteen = Instance.new("Part",workspace)
+    Partteen.Name = "Partteen"
+    Partteen.CanCollide = true
+    Partteen.Anchored = true
+    Partteen.Transparency = 1
+    Partteen.Size = Vector3.new(50,-3,50)
 spawn(function()
     while task.wait() do
         pcall(function()
             if _G.Clip or Startk then
                 game:GetService("Players").LocalPlayer.Character.Humanoid.Sit = false
                 game:GetService("ReplicatedStorage").Assets.GUI.DamageCounter.Enabled = false
+                game:GetService("Workspace"):FindFirstChild("Partteen").CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-3,0)
                 if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip") then
                     local Noclip = Instance.new("BodyVelocity")
                     Noclip.Name = "BodyClip"
@@ -1075,6 +1088,7 @@ spawn(function()
                 if game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip") then
                     StopTween()
                     game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip"):Destroy()
+                    game:GetService("Workspace"):FindFirstChild("Partteen").CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,999999,0)
                 end
             end
         end)
