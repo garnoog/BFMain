@@ -1076,7 +1076,7 @@ spawn(function()
             if _G.Clip or Startk then
                 game:GetService("Players").LocalPlayer.Character.Humanoid.Sit = false
                 game:GetService("ReplicatedStorage").Assets.GUI.DamageCounter.Enabled = false
-                game:GetService("Workspace"):FindFirstChild("Partteen").CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-3,0)
+                --game:GetService("Workspace"):FindFirstChild("Partteen").CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-3,0)
                 if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip") then
                     local Noclip = Instance.new("BodyVelocity")
                     Noclip.Name = "BodyClip"
