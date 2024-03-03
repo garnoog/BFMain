@@ -2456,6 +2456,8 @@ spawn(function()
                                                             TP(v.HumanoidRootPart.CFrame * CFrame.new(0,0,-2))
                                                             TP(v.HumanoidRootPart.CFrame * CFrame.new(2,0,0))
                                                             TP(v.HumanoidRootPart.CFrame * CFrame.new(-2,0,0))
+                                                        else
+                                                            StopTween()
                                                         end
                                                         if (v.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 30 then
                                                             KillHuntQuest()
