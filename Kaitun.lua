@@ -1842,6 +1842,7 @@ function FarmLevelOO()
                             repeat task.wait()
                                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = (v.CFrame * CFrame.new(0,40,0))
                             until (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Position).Magnitude < 10 or game.Workspace.Enemies:FindFirstChild(Ms) or not Startk
+                            v:Destroy()
                         end
                     end
 
