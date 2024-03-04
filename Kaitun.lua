@@ -1868,38 +1868,20 @@ function FarmLevelOO()
 			end
 			if _G.SelectBoss ~= nil and game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) or _G.SelectBoss ~= nil and game.ReplicatedStorage:FindFirstChild(_G.SelectBoss) then
 				CheckQuestBoss()
-				repeat wait()
-					_G.Doing = "Get Quest Boss"
-					TP(CFrameQBoss)
-				until (CFrameQBoss.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 and game.Players.LocalPlayer.Character.Humanoid.Health > 0
-				if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuestBoss, QuestLvBoss)
-					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-				end
+                _G.Doing = "Get Quest Boss"
+                GetQuest()
 				_G.Farm_Boss = true
 			elseif SelectMonster ~= nil then
 				CheckLevel()
-				repeat wait()
-					_G.Doing = "Get Quest Level"
-					TP(CFrameQ)
-				until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 and game.Players.LocalPlayer.Character.Humanoid.Health > 0
-				if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
-					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-				end
+                _G.Doing = "Get Quest Level"
+                GetQuest()
 				SelectMonster = nil
 				_G.Farm_Mon = nil
 			else
 				StatrMagnet = nil
 				CheckLevel()
-				repeat wait()
-					_G.Doing = "Get Quest Level"
-					TP(CFrameQ)
-				until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
-				if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
-					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
-					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-				end
+                _G.Doing = "Get Quest Level"
+                GetQuest()
 			end
 		elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
 		if _G.Farm_Boss then
