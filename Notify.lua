@@ -35,7 +35,7 @@ function Notify:New(Title,SupTitle)
     NotifyTemple.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
     NotifyTemple.BorderColor3 = Color3.fromRGB(0, 0, 0)
     NotifyTemple.BorderSizePixel = 0
-    NotifyTemple.Position = UDim2.new(0.264976948, 0, 0.390873015, 0)
+    NotifyTemple.Position = UDim2.new(0.4, 0, 0.390873015, 0)
     NotifyTemple.Size = UDim2.new(0, 187, 0, 40)
 
     CornerTemple.Name = "CornerTemple"
@@ -95,6 +95,11 @@ function Notify:New(Title,SupTitle)
     Sup.TextColor3 = Color3.fromRGB(255, 250, 99)
     Sup.TextSize = 14.000
     Sup.TextXAlignment = Enum.TextXAlignment.Left
+
+    local Tw = game:GetService("TweenService")
+    local Tf = TweenInfo.new(0.2, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
+    Tw:Create(NotifyTemple,Tf,{Position = 0.264976948, 0, 0.390873015, 0}):Play()
+    
     return Notify
 end
 
