@@ -2124,7 +2124,7 @@ function FarmSaber()
     		end
     		AttackNoCD()
     	until not Startk or not v or not v:FindFirstChild("Humanoid") or not v:FindFirstChild("HumanoidRootPart") or v.Humanoid.Health <= 0 
-    	
+    	Notify.new("Dummy Hub | Quest","Saber: ✅",99999999999)
     end
 end
 function FindBossWold2Quest()
