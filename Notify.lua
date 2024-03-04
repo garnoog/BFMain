@@ -1,9 +1,27 @@
+local Notify_DM = Instance.new("ScreenGui")
+local NotifyList = Instance.new("Frame")
+local UIListLayout = Instance.new("UIListLayout")
+Notify_DM.Name = "Notify_DM"
+Notify_DM.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+Notify_DM.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+NotifyList.Name = "NotifyList"
+NotifyList.Parent = Notify_DM
+NotifyList.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+NotifyList.BackgroundTransparency = 1.000
+NotifyList.BorderColor3 = Color3.fromRGB(0, 0, 0)
+NotifyList.BorderSizePixel = 0
+NotifyList.Position = UDim2.new(0.780645132, 0, 0, 0)
+NotifyList.Size = UDim2.new(0, 190, 0, 504)
+
+UIListLayout.Parent = NotifyList
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
+UIListLayout.Padding = UDim.new(0, 5)
+
 Notify = {}
 function Notify:New(Title,SupTitle)
 
-    local Notify_DM = Instance.new("ScreenGui")
-    local NotifyList = Instance.new("Frame")
-    local UIListLayout = Instance.new("UIListLayout")
     local NotifyTemple = Instance.new("Frame")
     local CornerTemple = Instance.new("UICorner")
     local Frame = Instance.new("Frame")
@@ -11,24 +29,6 @@ function Notify:New(Title,SupTitle)
     local Close = Instance.new("TextButton")
     local Main = Instance.new("TextLabel")
     local Sup = Instance.new("TextLabel")
-
-    Notify_DM.Name = "Notify_DM"
-    Notify_DM.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-    Notify_DM.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-
-    NotifyList.Name = "NotifyList"
-    NotifyList.Parent = Notify_DM
-    NotifyList.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    NotifyList.BackgroundTransparency = 1.000
-    NotifyList.BorderColor3 = Color3.fromRGB(0, 0, 0)
-    NotifyList.BorderSizePixel = 0
-    NotifyList.Position = UDim2.new(0.780645132, 0, 0, 0)
-    NotifyList.Size = UDim2.new(0, 190, 0, 504)
-
-    UIListLayout.Parent = NotifyList
-    UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-    UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
-    UIListLayout.Padding = UDim.new(0, 5)
 
     NotifyTemple.Name = "NotifyTemple"
     NotifyTemple.Parent = NotifyList
