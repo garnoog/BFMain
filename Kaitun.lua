@@ -78,7 +78,7 @@ function Notify.new(Title,SupTitle,Sec)
     Main.BorderSizePixel = 0
     Main.Position = UDim2.new(0.0375000015, 0, 0, 0)
     Main.Size = UDim2.new(0, 148, 0, 19)
-    Main.Font = Enum.Font.FredokaOne
+    Main.Font = Enum.Font.Ubuntu
     Main.Text = Title
     Main.TextColor3 = Color3.fromRGB(255, 204, 0)
     Main.TextSize = 14.000
@@ -92,7 +92,7 @@ function Notify.new(Title,SupTitle,Sec)
     Sup.BorderSizePixel = 0
     Sup.Position = UDim2.new(0.0375000648, 0, 0.474999994, 0)
     Sup.Size = UDim2.new(0, 148, 0, 19)
-    Sup.Font = Enum.Font.FredokaOne
+    Sup.Font = Enum.Font.Ubuntu
     Sup.Text = SupTitle
     Sup.TextColor3 = Color3.fromRGB(255, 250, 99)
     Sup.TextSize = 14.000
