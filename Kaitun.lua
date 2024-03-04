@@ -1203,6 +1203,13 @@ spawn(function()
                 game:GetService("Players").LocalPlayer.Character.Humanoid.Sit = false
                 game:GetService("ReplicatedStorage").Assets.GUI.DamageCounter.Enabled = false
                 game:GetService("Workspace"):FindFirstChild("Partteen").CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-3,0)
+                if not game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip") then
+                    local Noclip = Instance.new("BodyVelocity")
+                    Noclip.Name = "BodyClip"
+                    Noclip.Parent = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart
+                    Noclip.MaxForce = Vector3.new(100000,100000,100000)
+                    Noclip.Velocity = Vector3.new(0,0,0)
+                end
                 else
                 if game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:FindFirstChild("BodyClip") then
                     StopTween()
@@ -1865,8 +1872,7 @@ function FarmLevelOO()
 					_G.Doing = "Get Quest Boss"
 					TP(CFrameQBoss)
 				until (CFrameQBoss.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 and game.Players.LocalPlayer.Character.Humanoid.Health > 0
-				wait(1)
-                if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+				if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
 					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuestBoss, QuestLvBoss)
 					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
 				end
@@ -1877,8 +1883,7 @@ function FarmLevelOO()
 					_G.Doing = "Get Quest Level"
 					TP(CFrameQ)
 				until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 and game.Players.LocalPlayer.Character.Humanoid.Health > 0
-				wait(1)
-                if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+				if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
 					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
 					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
 				end
@@ -1891,8 +1896,7 @@ function FarmLevelOO()
 					_G.Doing = "Get Quest Level"
 					TP(CFrameQ)
 				until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
-				wait(1)
-                if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
+				if game.Players.LocalPlayer.Character.Humanoid.Health > 0 then
 					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
 					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
 				end
