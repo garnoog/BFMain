@@ -103,4 +103,4 @@ function Notify:New(Title,SupTitle)
     return Notify
 end
 
-Notify:New("Test","DummyHub")
+Notify:New("Dummy Hub | Hehe","DummyHub")
