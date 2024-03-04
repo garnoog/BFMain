@@ -2690,7 +2690,7 @@ spawn(function()
 end)
 
 spawn(function()
-    while wait(2) do
+    while wait(1.5) do
         pcall(function()
             Notify.new("Dummy Hub | Doing","Stats: ".._G.Doing,2)
         end)
