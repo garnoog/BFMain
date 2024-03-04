@@ -95,6 +95,7 @@ function Notify:New(Title,SupTitle)
     Sup.TextColor3 = Color3.fromRGB(255, 250, 99)
     Sup.TextSize = 14.000
     Sup.TextXAlignment = Enum.TextXAlignment.Left
+    return Notify
 end
 
-return Notify
+Notify:New("Test","DummyHub")
