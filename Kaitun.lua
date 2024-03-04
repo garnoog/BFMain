@@ -25,7 +25,7 @@ local Tw = game:GetService("TweenService")
 local Tf = TweenInfo.new(0.2, Enum.EasingStyle.Quart, Enum.EasingDirection.Out)
 
 Notify = {}
-function Notify.new(Title,SupTitle,Sec,Color)
+function Notify.new(Title,SupTitle,Sec)
 
     local NotifyTemple = Instance.new("Frame")
     local CornerTemple = Instance.new("UICorner")
@@ -47,7 +47,7 @@ function Notify.new(Title,SupTitle,Sec,Color)
     CornerTemple.Parent = NotifyTemple
 
     Frame.Parent = NotifyTemple
-    Frame.BackgroundColor3 = Color
+    Frame.BackgroundColor3 = Color3.fromRGB(255, 204, 0)
     Frame.BorderColor3 = Color3.fromRGB(255, 255, 0)
     Frame.BorderSizePixel = 0
     Frame.Size = UDim2.new(0, 6, 0, 40)
@@ -65,7 +65,7 @@ function Notify.new(Title,SupTitle,Sec,Color)
     Close.Size = UDim2.new(0, 20, 0, 20)
     Close.Font = Enum.Font.FredokaOne
     Close.Text = "X"
-    Close.TextColor3 = Color
+    Close.TextColor3 = Color3.fromRGB(255, 204, 0)
     Close.TextScaled = true
     Close.TextSize = 14.000
     Close.TextWrapped = true
@@ -80,7 +80,7 @@ function Notify.new(Title,SupTitle,Sec,Color)
     Main.Size = UDim2.new(0, 148, 0, 19)
     Main.Font = Enum.Font.FredokaOne
     Main.Text = Title
-    Main.TextColor3 = Color
+    Main.TextColor3 = Color3.fromRGB(255, 204, 0)
     Main.TextSize = 14.000
     Main.TextXAlignment = Enum.TextXAlignment.Left
 
@@ -94,7 +94,7 @@ function Notify.new(Title,SupTitle,Sec,Color)
     Sup.Size = UDim2.new(0, 148, 0, 19)
     Sup.Font = Enum.Font.FredokaOne
     Sup.Text = SupTitle
-    Sup.TextColor3 = Color3.new(math.min(Color.B + 99,255))
+    Sup.TextColor3 = Color3.fromRGB(255, 250, 99)
     Sup.TextSize = 14.000
     Sup.TextXAlignment = Enum.TextXAlignment.Left
 
@@ -2124,7 +2124,7 @@ function FarmSaber()
     		end
     		AttackNoCD()
     	until not Startk or not v or not v:FindFirstChild("Humanoid") or not v:FindFirstChild("HumanoidRootPart") or v.Humanoid.Health <= 0 
-    	Notify.new("Dummy Hub | Quest","Saber: ✅",99999999999,Color3.fromRGB(255,0,0))
+    	Notify.new("Dummy Hub | Quest","Saber: ✅",99999999999)
     end
 end
 function FindBossWold2Quest()
@@ -2692,7 +2692,7 @@ end)
 spawn(function()
     while wait(1.5) do
         pcall(function()
-            Notify.new("Dummy Hub | Doing", "Stats: ".._G.Doing, 2, Color3.fromRGB(255, 204, 0))
+            Notify.new("Dummy Hub | Doing","Stats: ".._G.Doing,2)
         end)
     end
 end)
