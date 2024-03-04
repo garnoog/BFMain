@@ -123,6 +123,7 @@ function Notify.new(Title,SupTitle,Sec)
 
     return Notify
 end
+Notify.new("Dummy Hub | Loading","Will Load Hehe",5)
 
 if not game:IsLoaded() then repeat game.Loaded:Wait() until game:IsLoaded() end
 repeat wait() until game.Players
@@ -1373,7 +1374,7 @@ function AttackNoCD()
                         debug.setupvalue(AC.attack, 6, u9)
                         debug.setupvalue(AC.attack, 4, u7)
                         debug.setupvalue(AC.attack, 7, u10)
-                        task.wait(0)
+                        wait(0)
                         pcall(function()
                             if plr.Character:FindFirstChildOfClass("Tool") and AC.blades and AC.blades[1] then
                                 AC.animator.anims.basic[3]:Play(0.01,0.01,0.01)
@@ -2689,9 +2690,9 @@ spawn(function()
 end)
 
 spawn(function()
-    while wait(5) do
+    while wait(2) do
         pcall(function()
-            Notify.new("Dummy Hub | Doing","Stats: ".._G.Doing,5)
+            Notify.new("Dummy Hub | Doing","Stats: ".._G.Doing,2)
         end)
     end
 end)
