@@ -1374,7 +1374,7 @@ function AttackNoCD()
                         debug.setupvalue(AC.attack, 6, u9)
                         debug.setupvalue(AC.attack, 4, u7)
                         debug.setupvalue(AC.attack, 7, u10)
-                        task.wait(0)
+                        task.wait(0.01)
                         pcall(function()
                             if plr.Character:FindFirstChildOfClass("Tool") and AC.blades and AC.blades[1] then
                                 AC.animator.anims.basic[3]:Play(0.01,0.01,0.01)
@@ -1924,11 +1924,7 @@ function FarmLevelOO()
                     if v.Humanoid:FindFirstChild("Animator") then
                         v.Humanoid.Animator:Destroy()
                     end
-                    v.Humanoid:ChangeState(11)
-                    v.Humanoid.JumpPower = 0
-                    v.Humanoid.WalkSpeed = 0
-                    v.HumanoidRootPart.CanCollide = false
-                    repeat wait()
+                    repeat task.wait()
                         _G.Doing = "Farm Level"
                         v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                         EquipWeapon(Weapon)
