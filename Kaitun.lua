@@ -1917,36 +1917,34 @@ function FarmLevelOO()
 				TP(CFrameBoss*CFrame.new(0,40,0))
 			end
 		else
-		    if game.Workspace.Enemies:FindFirstChild(Ms) then
-    			for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
-    				if v.Name == Ms and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
-    					_G.PosMon = v.HumanoidRootPart.CFrame
-    					StatrMagnet = true
-    					if v.Humanoid:FindFirstChild("Animator") then
-    						v.Humanoid.Animator:Destroy()
-    					end
-    					v.Humanoid:ChangeState(11)
-    					v.Humanoid.JumpPower = 0
-    					v.Humanoid.WalkSpeed = 0
-    					v.HumanoidRootPart.CanCollide = false
-    					repeat wait()
-							_G.Doing = "Farm Level"
-    					    v.HumanoidRootPart.Size = Vector3.new(50,50,50)
-    						EquipWeapon(Weapon)
-                    		if (v.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 50 then
-                		        Warp(v.HumanoidRootPart.CFrame * Cethod)
-                		    else
-                    		    TP(v.HumanoidRootPart.CFrame)
-                    		end
-    						AttackNoCD()
-    					until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or not v.Parent or v.Humanoid.Health <= 0 or not Startk or Mix_Farm
-    					Attack = nil
-    				end
-    			end
-    			else
-					_G.Doing = "Wait Monster Level"
+            for i,v in pairs(game.Workspace.Enemies:GetChildren()) do
+                if v.Name == Ms and v:FindFirstChild("Humanoid") and v:FindFirstChild("HumanoidRootPart") and v.Humanoid.Health > 0 then
+                    _G.PosMon = v.HumanoidRootPart.CFrame
+                    StatrMagnet = true
+                    if v.Humanoid:FindFirstChild("Animator") then
+                        v.Humanoid.Animator:Destroy()
+                    end
+                    v.Humanoid:ChangeState(11)
+                    v.Humanoid.JumpPower = 0
+                    v.Humanoid.WalkSpeed = 0
+                    v.HumanoidRootPart.CanCollide = false
+                    repeat wait()
+                        _G.Doing = "Farm Level"
+                        v.HumanoidRootPart.Size = Vector3.new(50,50,50)
+                        EquipWeapon(Weapon)
+                        if (v.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 50 then
+                            Warp(v.HumanoidRootPart.CFrame * Cethod)
+                        else
+                            TP(v.HumanoidRootPart.CFrame)
+                        end
+                        AttackNoCD()
+                    until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or not v.Parent or v.Humanoid.Health <= 0 or not Startk or Mix_Farm
+                    Attack = nil
+                else
+                    _G.Doing = "Wait Monster Level"
                     TP(CFrameMon)
-			end
+                end
+            end
 		end
 	end
     end)
