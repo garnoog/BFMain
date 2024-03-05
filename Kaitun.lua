@@ -1884,11 +1884,7 @@ function FarmSkyMonter()
     	repeat wait()
     	    v.HumanoidRootPart.Size = Vector3.new(50,50,50)
     		EquipWeapon(Weapon)
-    		if (v.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 50 then
-		        Warp(v.HumanoidRootPart.CFrame * Cethod)
-		    else
-    		    TP(v.HumanoidRootPart.CFrame)
-    		end
+            TP(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
     		AttackNoCD()
     	until not Startk or not v or not v:FindFirstChild("Humanoid") or not v:FindFirstChild("HumanoidRootPart") or v.Humanoid.Health <= 0 
     	
@@ -1912,6 +1908,7 @@ function FarmLevelOO()
                     _G.Doing = "Get Quest Level"
                     TP(CFrameQBoss)
                 until (CFrameQBoss.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+                wait(1)
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuestBoss, QuestLvBoss)
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
                 _G.Farm_Boss = true
@@ -1921,6 +1918,7 @@ function FarmLevelOO()
                     _G.Doing = "Get Quest Level"
                     TP(CFrameQ)
                 until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+                wait(1)
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
                 SelectMonster = nil
@@ -1932,6 +1930,7 @@ function FarmLevelOO()
                     _G.Doing = "Get Quest Level"
                     TP(CFrameQ)
                 until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+                wait(1)
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
             end
@@ -1952,11 +1951,7 @@ function FarmLevelOO()
 							_G.Doing = "Farm Boss Level"
 						    v.HumanoidRootPart.Size = Vector3.new(50,50,50)
 							EquipWeapon(Weapon)
-                    		if (v.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 50 then
-                		        Warp(v.HumanoidRootPart.CFrame * Cethod)
-                		    else
-                    		    TP(v.HumanoidRootPart.CFrame)
-                    		end
+                    		TP(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
 							AttackNoCD()
 						until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameBoss) or not v.Parent or v.Humanoid.Health <= 0 or not Startk or Mix_Farm
 						
@@ -1980,11 +1975,7 @@ function FarmLevelOO()
                         _G.Doing = "Farm Level"
                         v.HumanoidRootPart.Size = Vector3.new(50,50,50)
                         EquipWeapon(Weapon)
-                        if (v.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 50 then
-                            Warp(v.HumanoidRootPart.CFrame * Cethod)
-                        else
-                            TP(v.HumanoidRootPart.CFrame)
-                        end
+                        TP(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
                         AttackNoCD()
                     until game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == false or not string.find(game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Container.QuestTitle.Title.Text, NameMon) or not v.Parent or v.Humanoid.Health <= 0 or not Startk or Mix_Farm
                     Attack = nil
@@ -2016,11 +2007,7 @@ function FarmPole()
     	repeat wait()
     	    v.HumanoidRootPart.Size = Vector3.new(50,50,50)
     		EquipWeapon(Weapon)
-    		if (v.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 50 then
-		        Warp(v.HumanoidRootPart.CFrame * Cethod)
-		    else
-    		    TP(v.HumanoidRootPart.CFrame)
-    		end
+    		TP(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
     		AttackNoCD()
     	until not Startk or not v or not v:FindFirstChild("Humanoid") or not v:FindFirstChild("HumanoidRootPart") or v.Humanoid.Health <= 0 
     end
@@ -2097,11 +2084,7 @@ function SaberQuest()
 									repeat wait()
 									    v.HumanoidRootPart.Size = Vector3.new(50,50,50)
 										EquipWeapon(Weapon)
-										if (v.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 50 then
-                            		        Warp(v.HumanoidRootPart.CFrame * Cethod)
-                            		    else
-                                		    TP(v.HumanoidRootPart.CFrame)
-                                		end
+										TP(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
 										AttackNoCD()
 									until v.Humanoid.Health <= 0 or not v.Parent or not Startk 
 									repeat
@@ -2145,11 +2128,7 @@ function FarmSaber()
     	repeat wait()
     	    v.HumanoidRootPart.Size = Vector3.new(50,50,50)
     		EquipWeapon(Weapon)
-    		if (v.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 50 then
-		        Warp(v.HumanoidRootPart.CFrame * Cethod)
-		    else
-    		    TP(v.HumanoidRootPart.CFrame)
-    		end
+    		TP(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
     		AttackNoCD()
     	until not Startk or not v or not v:FindFirstChild("Humanoid") or not v:FindFirstChild("HumanoidRootPart") or v.Humanoid.Health <= 0 
     	Notify.new("Dummy Hub | Quest","Saber: ✅",99999999999)
@@ -2179,11 +2158,7 @@ function DoingQuestWorld2()
         	repeat wait()
         	    v.HumanoidRootPart.Size = Vector3.new(50,50,50)
         		EquipWeapon(Weapon)
-        		if (v.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 50 then
-    		        Warp(v.HumanoidRootPart.CFrame * Cethod)
-    		    else
-        		    TP(v.HumanoidRootPart.CFrame)
-        		end
+        		TP(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
         		AttackNoCD()
         	until not Startk or not v or not v:FindFirstChild("Humanoid") or not v:FindFirstChild("HumanoidRootPart") or v.Humanoid.Health <= 0
         	TP_World2()
@@ -2209,11 +2184,7 @@ function FarmBossWorld2()
     	repeat wait()
     	    v.HumanoidRootPart.Size = Vector3.new(50,50,50)
     		EquipWeapon(Weapon)
-    		if (v.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 50 then
-		        Warp(v.HumanoidRootPart.CFrame * Cethod)
-		    else
-    		    TP(v.HumanoidRootPart.CFrame)
-    		end
+    		TP(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
     		AttackNoCD()
     	until not Startk or not v or not v:FindFirstChild("Humanoid") or not v:FindFirstChild("HumanoidRootPart") or v.Humanoid.Health <= 0 
     end
@@ -2265,11 +2236,7 @@ function BartiloQuest1()
             repeat wait()
                 v.HumanoidRootPart.Size = Vector3.new(50,50,50)
         		EquipWeapon(Weapon)
-        		if (v.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 50 then
-    		        Warp(v.HumanoidRootPart.CFrame * Cethod)
-    		    else
-        		    TP(v.HumanoidRootPart.CFrame)
-        		end
+        		TP(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
         		AttackNoCD()
         	until not Startk or not v or not v:FindFirstChild("Humanoid") or not v:FindFirstChild("HumanoidRootPart") or v.Humanoid.Health <= 0 
         	
@@ -2299,11 +2266,7 @@ function BartiloQuest2()
         repeat wait()
             v.HumanoidRootPart.Size = Vector3.new(50,50,50)
     		EquipWeapon(Weapon)
-    		if (v.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 50 then
-		        Warp(v.HumanoidRootPart.CFrame * Cethod)
-		    else
-    		    TP(v.HumanoidRootPart.CFrame)
-    		end
+    		TP(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
     		AttackNoCD()
     	until not Startk or not v or not v:FindFirstChild("Humanoid") or not v:FindFirstChild("HumanoidRootPart") or v.Humanoid.Health <= 0 
     	
@@ -2505,11 +2468,7 @@ function gotoworld3()
         repeat wait()
             v.HumanoidRootPart.Size = Vector3.new(50,50,50)
     		EquipWeapon(Weapon)
-    		if (v.HumanoidRootPart.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 50 then
-		        Warp(v.HumanoidRootPart.CFrame * Cethod)
-		    else
-    		    TP(v.HumanoidRootPart.CFrame)
-    		end
+    		TP(v.HumanoidRootPart.CFrame * CFrame.new(0,40,0))
     		AttackNoCD()
         until not Startk or not v or not v:FindFirstChild("Humanoid") or not v:FindFirstChild("HumanoidRootPart") or v.Humanoid.Health <= 0 
 	TP_World3()
