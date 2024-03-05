@@ -125,7 +125,7 @@ function Notify.new(Title,SupTitle,Sec)
 
     return Notify
 end
-Notify.new("Dummy Hub | Loading","Will Load Hehe",5)
+Notify.new("Dummy Hub | Loading","Kaitun Mode",5)
 
 if not game:IsLoaded() then repeat game.Loaded:Wait() until game:IsLoaded() end
 repeat wait() until game.Players
@@ -1106,6 +1106,7 @@ function CheckLevel()
     end
 end --Fix not Complete
 function Warp(p)
+    tweenfunc:Stop()
 	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = p
 end
 function TP(p)
@@ -1192,6 +1193,7 @@ function TP(p)
 end
 
 function StopTween()
+    tweenfunc:Stop()
     TP(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame)
 end
 
