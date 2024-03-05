@@ -1775,9 +1775,9 @@ local FindBartilo2 = {"Jeremy"}
 local FindIndraWorld3Quest = {"rip_indra"}
 
 function GetCFrameMon()
-    local Lv = game:GetService("Players").LocalPlayer.Data.Level.Value
+    CheckLevel()
     if W1 then
-        if Lv == 1 and Lv <= 9 then
+        if SelectMonster == "Bandit" then
             CFrameMon1 = CFrame.new(940.2029418945312, 16.6924991607666+40, 1519.2493896484375)
             CFrameMon2 = CFrame.new(951.4797973632812, 16.61683464050293+40, 1620.89306640625)
             CFrameMon3 = CFrame.new(1014.9642333984375, 16.61676597595215+40, 1565.311279296875)
@@ -1786,7 +1786,7 @@ function GetCFrameMon()
             CFrameMon6 = CFrame.new(1218.59423828125, 16.273571014404297+40, 1681.0216064453125)
             CFrameMon7 = CFrame.new(1283.9200439453125, 16.273571014404297+40, 1625.9461669921875)
             CFrameMon8 = CFrame.new(1232.4404296875, 16.27361488342285+40, 1538.557373046875)
-        elseif Lv >= 10 and Lv <= 14 then
+        elseif SelectMonster == "Monkey" then
             CFrameMon1 = CFrame.new(-1294.4613037109375, 11.852043151855469+40, -2.7732455730438232)
             CFrameMon2 = CFrame.new(-1202.48974609375, 11.852043151855469+40, 281.791259765625)
             CFrameMon3 = CFrame.new(-1580.23388671875, 22.851999282836914+40, 376.2781982421875)
@@ -1795,7 +1795,7 @@ function GetCFrameMon()
             CFrameMon6 = CFrame.new(-1607.284912109375, 22.851211547851562+40, -44.98833084106445)
             CFrameMon7 = CFrame.new(-1487.47216796875, 22.85210418701172+40, 90.52552795410156)
             CFrameMon8 = CFrame.new(-1487.47216796875, 22.85210418701172+40, 90.52552795410156)
-        elseif Lv >= 15 and Lv <= 29 then
+        elseif SelectMonster == "Gorilla" then
             CFrameMon1 = CFrame.new(-1364.3902587890625, 18.62142562866211+40, -488.18829345703125)
             CFrameMon2 = CFrame.new(-1246.682861328125, 6.27936315536499+40, -455.3561096191406)
             CFrameMon3 = CFrame.new(-1249.805908203125, 6.27936315536499+40, -552.5149536132812)
@@ -1804,7 +1804,7 @@ function GetCFrameMon()
             CFrameMon6 = CFrame.new(-1246.682861328125, 6.27936315536499+40, -455.3561096191406)
             CFrameMon7 = CFrame.new(-1249.805908203125, 6.27936315536499+40, -552.5149536132812)
             CFrameMon8 = CFrame.new(-1187.705322265625, 11.219206809997559+40, -649.3475952148438)
-        elseif Lv >= 30 and Lv <= 39 then
+        elseif SelectMonster == "Pirate" then
             CFrameMon1 = CFrame.new(-1289.849365234375, 4.752050399780273+40, 3940.74560546875)
             CFrameMon2 = CFrame.new(-1269.7249755859375, 4.752050399780273+40, 3851.7626953125)
             CFrameMon3 = CFrame.new(-1181.4403076171875, 4.752050399780273+40, 3973.49267578125)
@@ -1813,7 +1813,7 @@ function GetCFrameMon()
             CFrameMon6 = CFrame.new(-970.0209350585938, 13.752033233642578+40, 4033.638671875)
             CFrameMon7 = CFrame.new(-970.0209350585938, 13.752033233642578+40, 4033.638671875)
             CFrameMon8 = CFrame.new(-970.0209350585938, 13.752033233642578+40, 4033.638671875)
-        elseif Lv >= 40 and Lv <= 59 then
+        elseif SelectMonster == "Brute" then
             CFrameMon1 = CFrame.new(-862.0116577148438, 14.752033233642578+40, 4281.189453125)
             CFrameMon2 = CFrame.new(-984.6527709960938, 14.819873809814453+40, 4233.53857421875)
             CFrameMon3 = CFrame.new(-1048.275634765625, 14.809873580932617+40, 4405.990234375)
@@ -1822,7 +1822,7 @@ function GetCFrameMon()
             CFrameMon6 = CFrame.new(-1399.4967041015625, 14.869874954223633+40, 4187.11962890625)
             CFrameMon7 = CFrame.new(-1399.4967041015625, 14.869874954223633+40, 4187.11962890625)
             CFrameMon8 = CFrame.new(-1399.4967041015625, 14.869874954223633+40, 4187.11962890625)
-        elseif Lv >= 60 and Lv <= 74 then
+        elseif SelectMonster == "Desert Bandit" then
             CFrameMon1 = CFrame.new(931.4910888671875, 6.449496269226074+40, 4424.92626953125)
             CFrameMon2 = CFrame.new(1005.9679565429688, 6.4495158195495605+40, 4486.73095703125)
             CFrameMon3 = CFrame.new(931.7928466796875, 6.449478626251221+40, 4537.40966796875)
@@ -1831,7 +1831,7 @@ function GetCFrameMon()
             CFrameMon6 = CFrame.new(1005.9679565429688, 6.4495158195495605+40, 4486.73095703125)
             CFrameMon7 = CFrame.new(931.7928466796875, 6.449478626251221+40, 4537.40966796875)
             CFrameMon8 = CFrame.new(863.7800903320312, 6.44989538192749+40, 4482.638671875)
-        elseif Lv >= 75 and Lv <= 89 then
+        elseif SelectMonster == "Desert Officer" then
             CFrameMon1 = CFrame.new(1579.355712890625, 1.6109551191329956+40, 4299.986328125)
             CFrameMon2 = CFrame.new(1666.529296875, 16.33990478515625+40, 4316.6298828125)
             CFrameMon3 = CFrame.new(1670.3516845703125, 9.899906158447266+40, 4393.64990234375)
@@ -1840,7 +1840,7 @@ function GetCFrameMon()
             CFrameMon6 = CFrame.new(1666.529296875, 16.33990478515625+40, 4316.6298828125)
             CFrameMon7 = CFrame.new(1670.3516845703125, 9.899906158447266+40, 4393.64990234375)
             CFrameMon8 = CFrame.new(1610.9713134765625, 1.2109688520431519+40, 4465.6533203125)
-        elseif Lv >= 90 and Lv <= 99 then
+        elseif SelectMonster == "Snow Bandit" then
             CFrameMon1 = CFrame.new(1199.2698974609375, 87.27276611328125+40, -1329.6365966796875)
             CFrameMon2 = CFrame.new(1275.7410888671875, 87.27276611328125+40, -1342.4158935546875)
             CFrameMon3 = CFrame.new(1314.813720703125, 87.27276611328125+40, -1392.2491455078125)
@@ -1849,7 +1849,7 @@ function GetCFrameMon()
             CFrameMon6 = CFrame.new(1455.8544921875, 87.27276611328125+40, -1445.296630859375)
             CFrameMon7 = CFrame.new(1455.8544921875, 87.27276611328125+40, -1445.296630859375)
             CFrameMon8 = CFrame.new(1455.8544921875, 87.27276611328125+40, -1445.296630859375)
-        elseif Lv >= 100 and Lv <= 119 then
+        elseif SelectMonster == "Snowman"  then
             CFrameMon1 = CFrame.new(1189.444091796875, 105.77227783203125+40, -1628.8709716796875)
             CFrameMon2 = CFrame.new(1263.51171875, 105.77810668945312+40, -1484.8223876953125)
             CFrameMon3 = CFrame.new(1148.21923828125, 105.77325439453125+40, -1428.9813232421875)
@@ -1858,7 +1858,7 @@ function GetCFrameMon()
             CFrameMon6 = CFrame.new(1263.51171875, 105.77810668945312+40, -1484.8223876953125)
             CFrameMon7 = CFrame.new(1148.21923828125, 105.77325439453125+40, -1428.9813232421875)
             CFrameMon8 = CFrame.new(1030.8486328125, 105.76580810546875+40, -1489.3455810546875)
-        elseif Lv >= 120 and Lv <= 149 then
+        elseif SelectMonster == "Chief Petty Officer" then
             CFrameMon1 = CFrame.new(-4806.26806640625, 20.65203285217285+40, 3998.07568359375)
             CFrameMon2 = CFrame.new(-4994.1552734375, 20.65203285217285+40, 3948.1748046875)
             CFrameMon3 = CFrame.new(-4921.9423828125, 20.65203285217285+40, 4084.2587890625)
@@ -1867,7 +1867,7 @@ function GetCFrameMon()
             CFrameMon6 = CFrame.new(-4636.09033203125, 20.65203285217285+40, 4553.8046875)
             CFrameMon7 = CFrame.new(-4810.64599609375, 20.65203285217285+40, 4541.19873046875)
             CFrameMon8 = CFrame.new(-4874.17626953125, 20.65203285217285+40, 4659.4990234375)
-        elseif Lv >= 150 and Lv <= 174 then
+        elseif SelectMonster == "Sky Bandit" then
             CFrameMon1 = CFrame.new(-4861.58837890625, 278.06524658203125+40, -2906.38037109375)
             CFrameMon2 = CFrame.new(-4946.23876953125, 278.06610107421875+40, -2780.7841796875)
             CFrameMon3 = CFrame.new(-5120.37939453125, 278.06842041015625+40, -2810.72607421875)
@@ -1876,7 +1876,7 @@ function GetCFrameMon()
             CFrameMon6 = CFrame.new(-4946.23876953125, 278.06610107421875+40, -2780.7841796875)
             CFrameMon7 = CFrame.new(-5120.37939453125, 278.06842041015625+40, -2810.72607421875)
             CFrameMon8 = CFrame.new(-5081.54345703125, 278.0681457519531+40, -2942.20654296875)
-        elseif Lv >= 175 and Lv <= 189 then
+        elseif SelectMonster == "Dark Master" then
             CFrameMon1 = CFrame.new(-5232.33349609375, 388.6519470214844+40, -2370.094970703125)
             CFrameMon2 = CFrame.new(-5166.5615234375, 388.6519470214844+40, -2242.56103515625)
             CFrameMon3 = CFrame.new(-5243.41455078125, 388.6519470214844+40, -2156.603515625)
@@ -1885,7 +1885,7 @@ function GetCFrameMon()
             CFrameMon6 = CFrame.new(-5166.5615234375, 388.6519470214844+40, -2242.56103515625)
             CFrameMon7 = CFrame.new(-5243.41455078125, 388.6519470214844+40, -2156.603515625)
             CFrameMon8 = CFrame.new(-5338.81884765625, 388.6519470214844+40, -2260.91650390625)
-        elseif Lv >= 190 and Lv <= 209 then
+        elseif SelectMonster == "Prisoner" then
             CFrameMon1 = CFrame.new(5350.1787109375, 1.6334410905838013+40, 388.7147216796875)
             CFrameMon2 = CFrame.new(5221.408203125, 1.6341384649276733+40, 448.60833740234375)
             CFrameMon3 = CFrame.new(5088.845703125, 1.6715176105499268+40, 425.63763427734375)
@@ -1894,7 +1894,7 @@ function GetCFrameMon()
             CFrameMon6 = CFrame.new(4936.69775390625, 1.632628321647644+40, 650.6769409179688)
             CFrameMon7 = CFrame.new(4936.69775390625, 1.632628321647644+40, 650.6769409179688)
             CFrameMon8 = CFrame.new(4936.69775390625, 1.632628321647644+40, 650.6769409179688)
-        elseif Lv >= 210 and Lv <= 249 then
+        elseif SelectMonster == "Dangerous Prisoner" then
             CFrameMon1 = CFrame.new(5482.27392578125, 1.6511272192001343+40, 469.4695739746094)
             CFrameMon2 = CFrame.new(5551.83642578125, 1.6520428657531738+40, 586.2621459960938)
             CFrameMon3 = CFrame.new(5650.1103515625, 1.653846263885498+40, 765.012939453125)
@@ -1903,7 +1903,7 @@ function GetCFrameMon()
             CFrameMon6 = CFrame.new(5097.1142578125, 1.6509758234024048+40, 1055.196533203125)
             CFrameMon7 = CFrame.new(4957.169921875, 1.6516176462173462+40, 919.9663696289062)
             CFrameMon8 = CFrame.new(4957.169921875, 1.6516176462173462+40, 919.9663696289062)
-        elseif Lv >= 250 and Lv <= 274 then
+        elseif SelectMonster == "Toga Warrior" then
             CFrameMon1 = CFrame.new(-1675.2734375, 7.286351680755615+40, -2681.58740234375)
             CFrameMon2 = CFrame.new(-1838.6986083984375, 7.289072513580322+40, -2668.1875)
             CFrameMon3 = CFrame.new(-2058.825439453125, 7.289072513580322+40, -2713.903564453125)
@@ -1912,16 +1912,7 @@ function GetCFrameMon()
             CFrameMon6 = CFrame.new(-1796.3717041015625, 7.442544937133789+40, -2854.753173828125)
             CFrameMon7 = CFrame.new(-1796.3717041015625, 7.442544937133789+40, -2854.753173828125)
             CFrameMon8 = CFrame.new(-1796.3717041015625, 7.442544937133789+40, -2854.753173828125)
-        elseif Lv >= 275 and Lv <= 299 then
-            CFrameMon1 = CFrame.new(-1492.459716796875, 7.442545413970947+40, -3193.350830078125)
-            CFrameMon2 = CFrame.new(-1371.4588623046875, 7.38933801651001+40, -3379.08154296875)
-            CFrameMon3 = CFrame.new(-1352.397216796875, 7.289072513580322+40, -3591.7822265625)
-            CFrameMon4 = CFrame.new(-1129.909423828125, 7.289072513580322+40, -3268.37109375)
-            CFrameMon5 = CFrame.new(-1236.29052734375, 7.287659168243408+40, -3049.99951171875)
-            CFrameMon6 = CFrame.new(-1236.29052734375, 7.287659168243408+40, -3049.99951171875)
-            CFrameMon7 = CFrame.new(-1236.29052734375, 7.287659168243408+40, -3049.99951171875)
-            CFrameMon8 = CFrame.new(-1236.29052734375, 7.287659168243408+40, -3049.99951171875)
-        elseif Lv >= 300 and Lv <= 324 then
+        elseif SelectMonster == "Military Soldier" then
             CFrameMon1 = CFrame.new(-5284.8388671875, 8.990673065185547+40, 8661.0390625)
             CFrameMon2 = CFrame.new(-5412.69287109375, 8.590673446655273+40, 8587.8193359375)
             CFrameMon3 = CFrame.new(-5438.95849609375, 8.590673446655273+40, 8346.1171875)
@@ -1930,7 +1921,7 @@ function GetCFrameMon()
             CFrameMon6 = CFrame.new(-5667.763671875, 8.590673446655273+40, 8429.0361328125)
             CFrameMon7 = CFrame.new(-5667.763671875, 8.590673446655273+40, 8429.0361328125)
             CFrameMon8 = CFrame.new(-5667.763671875, 8.590673446655273+40, 8429.0361328125)
-        elseif Lv >= 325 and Lv <= 374 then
+        elseif SelectMonster == "Military Spy" then
             CFrameMon1 = CFrame.new(-5784.5888671875, 77.12830352783203, 8649.6328125)
             CFrameMon2 = CFrame.new(-5858.59326171875, 77.23063659667969+40, 8776.634765625)
             CFrameMon3 = CFrame.new(-5917.80078125, 77.23063659667969+40, 8844.744140625)
@@ -1939,7 +1930,7 @@ function GetCFrameMon()
             CFrameMon6 = CFrame.new(-5858.59326171875, 77.23063659667969+40, 8776.634765625)
             CFrameMon7 = CFrame.new(-5917.80078125, 77.23063659667969+40, 8844.744140625)
             CFrameMon8 = CFrame.new(-5808.0576171875, 77.251708984375+40, 8903.1845703125)
-        elseif Lv >= 375 and Lv <= 399 then
+        elseif  SelectMonster == "Fishman Warrior" then
             CFrameMon1 = CFrame.new(60945.5234375, 18.482818603515625+40, 1739.2591552734375)
             CFrameMon2 = CFrame.new(60845.8671875, 18.482818603515625+40, 1647.6759033203125)
             CFrameMon3 = CFrame.new(60789.96875, 18.471633911132812+40, 1527.054931640625)
@@ -1948,7 +1939,7 @@ function GetCFrameMon()
             CFrameMon6 = CFrame.new(60843.2734375, 18.471633911132812+40, 1304.419921875)
             CFrameMon7 = CFrame.new(60926.53515625, 18.471633911132812+40, 1181.3790283203125)
             CFrameMon8 = CFrame.new(60926.53515625, 18.471633911132812+40, 1181.3790283203125)
-        elseif Lv >= 400 and Lv <= 449 then
+        elseif SelectMonster == "Fishman Commando" then
             CFrameMon1 = CFrame.new(61699.08984375, 18.471633911132812+40, 1518.89208984375)
             CFrameMon2 = CFrame.new(61764.171875, 18.482818603515625+40, 1460.4661865234375)
             CFrameMon3 = CFrame.new(61786.203125, 18.471633911132812+40, 1284.07275390625)
@@ -1957,7 +1948,7 @@ function GetCFrameMon()
             CFrameMon6 = CFrame.new(61859.0078125, 18.471633911132812+40, 1695.760498046875)
             CFrameMon7 = CFrame.new(61859.0078125, 18.471633911132812+40, 1695.760498046875)
             CFrameMon8 = CFrame.new(61859.0078125, 18.471633911132812+40, 1695.760498046875)
-        elseif Lv >= 450 and Lv <= 474 then
+        elseif SelectMonster == "God's Guard" then
             CFrameMon1 = CFrame.new(-4701.5185546875, 844.2769775390625+40, -1794.988037109375)
             CFrameMon2 = CFrame.new(-4823.76171875, 843.287109375+40, -1781.209228515625)
             CFrameMon3 = CFrame.new(-4862.9072265625, 843.287109375+40, -1916.7386474609375)
@@ -1966,7 +1957,7 @@ function GetCFrameMon()
             CFrameMon6 = CFrame.new(-4582.03515625, 843.287109375+40, -1941.2008056640625)
             CFrameMon7 = CFrame.new(-4582.03515625, 843.287109375+40, -1941.2008056640625)
             CFrameMon8 = CFrame.new(-4582.03515625, 843.287109375+40, -1941.2008056640625)
-        elseif Lv >= 475 and Lv >= 524 then
+        elseif SelectMonster == "Shanda" then
             CFrameMon1 = CFrame.new(-7791.04638671875, 5545.49169921875+40, -488.8955383300781)
             CFrameMon2 = CFrame.new(-7723.7841796875, 5545.49169921875+40, -587.0575561523438)
             CFrameMon3 = CFrame.new(-7594.61279296875, 5545.49169921875+40, -652.351806640625)
@@ -1975,7 +1966,7 @@ function GetCFrameMon()
             CFrameMon6 = CFrame.new(-7713.80029296875, 5545.49169921875+40, -338.3591003417969)
             CFrameMon7 = CFrame.new(-7713.80029296875, 5545.49169921875+40, -338.3591003417969)
             CFrameMon8 = CFrame.new(-7713.80029296875, 5545.49169921875+40, -338.3591003417969)
-        elseif Lv >= 525 and Lv <= 549 then
+        elseif SelectMonster == "Royal Squad" then
             CFrameMon1 = CFrame.new(-7841.76123046875, 5606.876953125+40, -1404.2388916015625)
             CFrameMon2 = CFrame.new(-7721.37451171875, 5606.876953125+40, -1508.4566650390625)
             CFrameMon3 = CFrame.new(-7525.01708984375, 5606.876953125+40, -1544.11279296875)
@@ -1984,7 +1975,7 @@ function GetCFrameMon()
             CFrameMon6 = CFrame.new(-7673.81201171875, 5606.876953125+40, -1380.596923828125)
             CFrameMon7 = CFrame.new(-7673.81201171875, 5606.876953125+40, -1380.596923828125)
             CFrameMon8 = CFrame.new(-7673.81201171875, 5606.876953125+40, -1380.596923828125)
-        elseif Lv >= 550 and Lv <= 624 then
+        elseif SelectMonster == "Royal Soldier" then
             CFrameMon1 = CFrame.new(-7935.39501953125, 5606.876953125+40, -1624.7528076171875)
             CFrameMon2 = CFrame.new(-7917.07275390625, 5606.876953125+40, -1720.010009765625)
             CFrameMon3 = CFrame.new(-7947.041015625, 5606.876953125+40, -1824.520751953125)
@@ -1993,7 +1984,7 @@ function GetCFrameMon()
             CFrameMon6 = CFrame.new(-7764.90966796875, 5606.87744140625+40, -1722.2987060546875)
             CFrameMon7 = CFrame.new(-7764.90966796875, 5606.87744140625+40, -1722.2987060546875)
             CFrameMon8 = CFrame.new(-7764.90966796875, 5606.87744140625+40, -1722.2987060546875)
-        elseif Lv >= 625 and Lv <= 649 then
+        elseif SelectMonster == "Galley Pirate" then
             CFrameMon1 = CFrame.new(5350.0185546875, 38.5008544921875+40, 3956.221923828125)
             CFrameMon2 = CFrame.new(5479.8955078125, 51.69243621826172+40, 4052.640380859375)
             CFrameMon3 = CFrame.new(5518.19677734375, 38.5008544921875+40, 3934.01416015625)
@@ -2002,7 +1993,7 @@ function GetCFrameMon()
             CFrameMon6 = CFrame.new(5833.47265625, 38.5008544921875+40, 3913.85107421875)
             CFrameMon7 = CFrame.new(5833.47265625, 38.5008544921875+40, 3913.85107421875)
             CFrameMon8 = CFrame.new(5833.47265625, 38.5008544921875+40, 3913.85107421875)
-        elseif Lv >= 650 then
+        elseif SelectMonster == "Galley Captain" then
             CFrameMon1 = CFrame.new(5339.81396484375, 38.84409713745117+40, 4925.99609375)
             CFrameMon2 = CFrame.new(5417.36865234375, 58.16657638549805+40, 4786.052734375)
             CFrameMon3 = CFrame.new(5579.6884765625, 52.418670654296875+40, 4862.96728515625)
