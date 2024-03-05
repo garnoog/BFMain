@@ -2938,11 +2938,3 @@ spawn(function()
         end)
     end)
 end)
-
-spawn(function()
-    while wait(1.5) do
-        pcall(function()
-            Notify.new("Dummy Hub | Doing","Stats: ".._G.Doing,2)
-        end)
-    end
-end)
