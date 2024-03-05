@@ -1106,6 +1106,7 @@ function CheckLevel()
     end
 end --Fix not Complete
 function Warp(p)
+    StopTween()
 	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = p
 end
 function TP(p)
