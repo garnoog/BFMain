@@ -2080,12 +2080,12 @@ function GetQuest()
 	CheckLevel()
     local questname = CheckQuest()["QuestName"]
     local id = CheckQuest()["ID"]
-    if (NPCPos().Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
+    if (CFrameQ.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
         wait(.5)
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
     else
 		_G.Doing = "Get Quest Level"
-        TP(NPCPos())
+        TP(CFrameQ)
     end
 end
 
