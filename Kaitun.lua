@@ -2136,6 +2136,7 @@ function FarmLevelOO()
 			if _G.SelectBoss ~= nil and game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) or _G.SelectBoss ~= nil and game.ReplicatedStorage:FindFirstChild(_G.SelectBoss) then
                 CheckQuestBoss()
                 repeat wait()
+                    _G.Doing = "Get Quest Level"
                     TP3(CFrameQBoss)
                 until (CFrameQBoss.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuestBoss, QuestLvBoss)
@@ -2144,6 +2145,7 @@ function FarmLevelOO()
             elseif SelectMonster ~= nil then
                 CheckLevel()
                 repeat wait()
+                    _G.Doing = "Get Quest Level"
                     TP3(CFrameQ)
                 until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
@@ -2154,6 +2156,7 @@ function FarmLevelOO()
                 StatrMagnet = nil
                 CheckLevel()
                 repeat wait()
+                    _G.Doing = "Get Quest Level"
                     TP3(CFrameQ)
                 until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
