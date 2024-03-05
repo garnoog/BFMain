@@ -2080,12 +2080,12 @@ function GetQuest()
 	CheckLevel()
     local questname = CheckQuest()["QuestName"]
     local id = CheckQuest()["ID"]
-    if (CFrameQ.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
+    if (NPCPos().Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
         wait(.5)
         game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
     else
 		_G.Doing = "Get Quest Level"
-        TP(CFrameQ)
+        TP(NPCPos())
     end
 end
 
@@ -2136,19 +2136,37 @@ function FarmLevelOO()
 			if _G.SelectBoss ~= nil and game.Workspace.Enemies:FindFirstChild(_G.SelectBoss) or _G.SelectBoss ~= nil and game.ReplicatedStorage:FindFirstChild(_G.SelectBoss) then
 				CheckQuestBoss()
                 _G.Doing = "Get Quest Boss"
-                GetQuest()
+                if (CFrameQBoss.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
+                    wait(.5)
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuestBoss, QuestLvBoss)
+                else
+                    _G.Doing = "Get Quest Level"
+                    TP(CFrameQBoss)
+                end
 				_G.Farm_Boss = true
 			elseif SelectMonster ~= nil then
 				CheckLevel()
                 _G.Doing = "Get Quest Level"
-                GetQuest()
+                if (CFrameQ.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
+                    wait(.5)
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
+                else
+                    _G.Doing = "Get Quest Level"
+                    TP(CFrameQ)
+                end
 				SelectMonster = nil
 				_G.Farm_Mon = nil
 			else
 				StatrMagnet = nil
 				CheckLevel()
                 _G.Doing = "Get Quest Level"
-                GetQuest()
+                if (CFrameQ.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
+                    wait(.5)
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
+                else
+                    _G.Doing = "Get Quest Level"
+                    TP(CFrameQ)
+                end
 			end
 		elseif game.Players.LocalPlayer.PlayerGui.Main.Quest.Visible == true then
 		if _G.Farm_Boss then
