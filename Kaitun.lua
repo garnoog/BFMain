@@ -432,6 +432,9 @@ end
 
 function CheckLevel()
     local Lv = game:GetService("Players").LocalPlayer.Data.Level.Value
+    if _G.Upto then
+        Lv = Lv + 100
+    end
     if W1 then
         if Lv == 1 or Lv <= 9 or SelectMonster == "Bandit" then -- Bandit
             Ms = "Bandit"
@@ -439,42 +442,21 @@ function CheckLevel()
             QuestLv = 1
             NameMon = "Bandit"
             CFrameQ = CFrame.new(1059.37195, 15.4495068, 1550.4231, 0.939700544, -0, -0.341998369, 0, 1, -0, 0.341998369, 0, 0.939700544)
-            CFrameMon1 = CFrame.new(940.2029418945312, 16.6924991607666+40, 1519.2493896484375)
-            CFrameMon2 = CFrame.new(951.4797973632812, 16.61683464050293+40, 1620.89306640625)
-            CFrameMon3 = CFrame.new(1014.9642333984375, 16.61676597595215+40, 1565.311279296875)
-            CFrameMon4 = CFrame.new(1107.12744140625, 16.616853713989258+40, 1588.759033203125)
-            CFrameMon5 = CFrame.new(1127.692138671875, 16.616853713989258+40, 1662.8216552734375)
-            CFrameMon6 = CFrame.new(1218.59423828125, 16.273571014404297+40, 1681.0216064453125)
-            CFrameMon7 = CFrame.new(1283.9200439453125, 16.273571014404297+40, 1625.9461669921875)
-            CFrameMon8 = CFrame.new(1232.4404296875, 16.27361488342285+40, 1538.557373046875)
+            CFrameMon = CFrame.new(1037.1971435546875, 80.767822265625, 1593.5054931640625)
         elseif Lv == 10 or Lv <= 14 or SelectMonster == "Monkey" then -- Monkey
             Ms = "Monkey"
             NameQuest = "JungleQuest"
             QuestLv = 1
             NameMon = "Monkey"
             CFrameQ = CFrame.new(-1598.08911, 35.5501175, 153.377838, 0, 0, 1, 0, 1, -0, -1, 0, 0)
-            CFrameMon1 = CFrame.new(-1294.4613037109375, 11.852043151855469+40, -2.7732455730438232)
-            CFrameMon2 = CFrame.new(-1202.48974609375, 11.852043151855469+40, 281.791259765625)
-            CFrameMon3 = CFrame.new(-1580.23388671875, 22.851999282836914+40, 376.2781982421875)
-            CFrameMon4 = CFrame.new(-1801.1041259765625, 22.852006912231445+40, 110.28227233886719)
-            CFrameMon5 = CFrame.new(-1743.83837890625, 22.852083206176758+40, -95.19615173339844)
-            CFrameMon6 = CFrame.new(-1607.284912109375, 22.851211547851562+40, -44.98833084106445)
-            CFrameMon7 = CFrame.new(-1487.47216796875, 22.85210418701172+40, 90.52552795410156)
-            CFrameMon8 = CFrame.new(-1487.47216796875, 22.85210418701172+40, 90.52552795410156)
+            CFrameMon = CFrame.new(-1447.7362060546875, 51.19523239135742, 62.61884307861328)
         elseif Lv == 15 or Lv <= 29 or SelectMonster == "Gorilla" then -- Gorilla
             Ms = "Gorilla"
             NameQuest = "JungleQuest"
             QuestLv = 2
             NameMon = "Gorilla"
             CFrameQ = CFrame.new(-1598.08911, 35.5501175, 153.377838, 0, 0, 1, 0, 1, -0, -1, 0, 0)
-            CFrameMon1 = CFrame.new(-1364.3902587890625, 18.62142562866211+40, -488.18829345703125)
-            CFrameMon2 = CFrame.new(-1246.682861328125, 6.27936315536499+40, -455.3561096191406)
-            CFrameMon3 = CFrame.new(-1249.805908203125, 6.27936315536499+40, -552.5149536132812)
-            CFrameMon4 = CFrame.new(-1187.705322265625, 11.219206809997559+40, -649.3475952148438)
-            CFrameMon5 = CFrame.new(-1364.3902587890625, 18.62142562866211+40, -488.18829345703125)
-            CFrameMon6 = CFrame.new(-1246.682861328125, 6.27936315536499+40, -455.3561096191406)
-            CFrameMon7 = CFrame.new(-1249.805908203125, 6.27936315536499+40, -552.5149536132812)
-            CFrameMon8 = CFrame.new(-1187.705322265625, 11.219206809997559+40, -649.3475952148438)
+            CFrameMon = CFrame.new(-1132.8082275390625, 40.80637741088867, -521.5314331054688)
             if Lv >= 25 then
                 _G.SelectBoss = "The Gorilla King" 
             end
@@ -486,28 +468,14 @@ function CheckLevel()
             QuestLv = 1
             NameMon = "Pirate"
             CFrameQ = CFrame.new(-1141.07483, 4.10001802, 3831.5498, 0.965929627, -0, -0.258804798, 0, 1, -0, 0.258804798, 0, 0.965929627)
-            CFrameMon1 = CFrame.new(-1289.849365234375, 4.752050399780273+40, 3940.74560546875)
-            CFrameMon2 = CFrame.new(-1269.7249755859375, 4.752050399780273+40, 3851.7626953125)
-            CFrameMon3 = CFrame.new(-1181.4403076171875, 4.752050399780273+40, 3973.49267578125)
-            CFrameMon4 = CFrame.new(-1141.906494140625, 4.752050399780273+40, 3895.46875)
-            CFrameMon5 = CFrame.new(-967.46435546875, 13.752033233642578+40, 3937.073974609375)
-            CFrameMon6 = CFrame.new(-970.0209350585938, 13.752033233642578+40, 4033.638671875)
-            CFrameMon7 = CFrame.new(-970.0209350585938, 13.752033233642578+40, 4033.638671875)
-            CFrameMon8 = CFrame.new(-970.0209350585938, 13.752033233642578+40, 4033.638671875)
+            CFrameMon = CFrame.new(-1049.65478515625, 67.99503326416016, 3957.435791015625)
         elseif Lv >= 40 and Lv <= 60-1 or SelectMonster == "Brute" then
             Ms = "Brute"
             NameQuest = "BuggyQuest1"
             QuestLv = 2
             NameMon = "Brute"
             CFrameQ = CFrame.new(-1141.07483, 4.10001802, 3831.5498, 0.965929627, -0, -0.258804798, 0, 1, -0, 0.258804798, 0, 0.965929627)
-            CFrameMon1 = CFrame.new(-862.0116577148438, 14.752033233642578+40, 4281.189453125)
-            CFrameMon2 = CFrame.new(-984.6527709960938, 14.819873809814453+40, 4233.53857421875)
-            CFrameMon3 = CFrame.new(-1048.275634765625, 14.809873580932617+40, 4405.990234375)
-            CFrameMon4 = CFrame.new(-1233.210693359375, 15.08987045288086+40, 4337.54833984375)
-            CFrameMon5 = CFrame.new(-1189.86474609375, 14.809873580932617+40, 4232.53515625)
-            CFrameMon6 = CFrame.new(-1399.4967041015625, 14.869874954223633+40, 4187.11962890625)
-            CFrameMon7 = CFrame.new(-1399.4967041015625, 14.869874954223633+40, 4187.11962890625)
-            CFrameMon8 = CFrame.new(-1399.4967041015625, 14.869874954223633+40, 4187.11962890625)
+            CFrameMon = CFrame.new(-1147.0657958984375, 96.61427307128906, 4311.46484375)
             if Lv >= 55 then
                 _G.SelectBoss = "Bobby"
             end
@@ -519,28 +487,14 @@ function CheckLevel()
             QuestLv = 1
             NameMon = "Desert Bandit"
             CFrameQ = CFrame.new(894.488647, 5.14000702, 4392.43359, 0.819155693, -0, -0.573571265, 0, 1, -0, 0.573571265, 0, 0.819155693)
-            CFrameMon1 = CFrame.new(931.4910888671875, 6.449496269226074+40, 4424.92626953125)
-            CFrameMon2 = CFrame.new(1005.9679565429688, 6.4495158195495605+40, 4486.73095703125)
-            CFrameMon3 = CFrame.new(931.7928466796875, 6.449478626251221+40, 4537.40966796875)
-            CFrameMon4 = CFrame.new(863.7800903320312, 6.44989538192749+40, 4482.638671875)
-            CFrameMon5 = CFrame.new(931.4910888671875, 6.449496269226074+40, 4424.92626953125)
-            CFrameMon6 = CFrame.new(1005.9679565429688, 6.4495158195495605+40, 4486.73095703125)
-            CFrameMon7 = CFrame.new(931.7928466796875, 6.449478626251221+40, 4537.40966796875)
-            CFrameMon8 = CFrame.new(863.7800903320312, 6.44989538192749+40, 4482.638671875)
+            CFrameMon = CFrame.new(982.4600830078125, 23.526029586791992, 4411.40576171875)
         elseif Lv >= 75 and Lv <= 90-1 or SelectMonster == "Desert Officer" then
             Ms = "Desert Officer"
             NameQuest = "DesertQuest"
             QuestLv = 2
             NameMon = "Desert Officer"
             CFrameQ = CFrame.new(894.488647, 5.14000702, 4392.43359, 0.819155693, -0, -0.573571265, 0, 1, -0, 0.573571265, 0, 0.819155693)
-            CFrameMon1 = CFrame.new(1579.355712890625, 1.6109551191329956+40, 4299.986328125)
-            CFrameMon2 = CFrame.new(1666.529296875, 16.33990478515625+40, 4316.6298828125)
-            CFrameMon3 = CFrame.new(1670.3516845703125, 9.899906158447266+40, 4393.64990234375)
-            CFrameMon4 = CFrame.new(1610.9713134765625, 1.2109688520431519+40, 4465.6533203125)
-            CFrameMon5 = CFrame.new(1579.355712890625, 1.6109551191329956+40, 4299.986328125)
-            CFrameMon6 = CFrame.new(1666.529296875, 16.33990478515625+40, 4316.6298828125)
-            CFrameMon7 = CFrame.new(1670.3516845703125, 9.899906158447266+40, 4393.64990234375)
-            CFrameMon8 = CFrame.new(1610.9713134765625, 1.2109688520431519+40, 4465.6533203125)
+            CFrameMon = CFrame.new(1562.3126220703125, 14.795281410217285, 4405.677734375)
             SelectMonster = "Desert Bandit"
         elseif Lv >= 90 and Lv <= 100-1 or SelectMonster == "Snow Bandit" then -- Snow Bandits
             Ms = "Snow Bandit"
@@ -548,28 +502,14 @@ function CheckLevel()
             QuestLv = 1
             NameMon = "Snow Bandit"
             CFrameQ = CFrame.new(1389.74451, 86.6520844, -1298.90796, -0.342042685, 0, 0.939684391, 0, 1, 0, -0.939684391, 0, -0.342042685)
-            CFrameMon1 = CFrame.new(1199.2698974609375, 87.27276611328125+40, -1329.6365966796875)
-            CFrameMon2 = CFrame.new(1275.7410888671875, 87.27276611328125+40, -1342.4158935546875)
-            CFrameMon3 = CFrame.new(1314.813720703125, 87.27276611328125+40, -1392.2491455078125)
-            CFrameMon4 = CFrame.new(1381.942138671875, 87.27276611328125+40, -1469.5084228515625)
-            CFrameMon5 = CFrame.new(1455.8544921875, 87.27276611328125+40, -1445.296630859375)
-            CFrameMon6 = CFrame.new(1455.8544921875, 87.27276611328125+40, -1445.296630859375)
-            CFrameMon7 = CFrame.new(1455.8544921875, 87.27276611328125+40, -1445.296630859375)
-            CFrameMon8 = CFrame.new(1455.8544921875, 87.27276611328125+40, -1445.296630859375)
+            CFrameMon = CFrame.new(1340.0426025390625, 105.56710052490234, -1315.054443359375)
         elseif Lv == 100 or Lv <= 119 or SelectMonster == "Snowman" then -- Snowman
             Ms = "Snowman"
             NameQuest = "SnowQuest"
             QuestLv = 2
             NameMon = "Snowman"
             CFrameQ = CFrame.new(1389.74451, 86.6520844, -1298.90796, -0.342042685, 0, 0.939684391, 0, 1, 0, -0.939684391, 0, -0.342042685)
-            CFrameMon1 = CFrame.new(1189.444091796875, 105.77227783203125+40, -1628.8709716796875)
-            CFrameMon2 = CFrame.new(1263.51171875, 105.77810668945312+40, -1484.8223876953125)
-            CFrameMon3 = CFrame.new(1148.21923828125, 105.77325439453125+40, -1428.9813232421875)
-            CFrameMon4 = CFrame.new(1030.8486328125, 105.76580810546875+40, -1489.3455810546875)
-            CFrameMon5 = CFrame.new(1189.444091796875, 105.77227783203125+40, -1628.8709716796875)
-            CFrameMon6 = CFrame.new(1263.51171875, 105.77810668945312+40, -1484.8223876953125)
-            CFrameMon7 = CFrame.new(1148.21923828125, 105.77325439453125+40, -1428.9813232421875)
-            CFrameMon8 = CFrame.new(1030.8486328125, 105.76580810546875+40, -1489.3455810546875)
+            CFrameMon = CFrame.new(1219.813720703125, 138.35508728027344, -1487.648681640625)
             if Lv >= 110 then
                 _G.SelectBoss = "Yeti"
             end
@@ -581,14 +521,8 @@ function CheckLevel()
             QuestLv = 1
             NameMon = "Chief Petty Officer"
             CFrameQ = CFrame.new(-5039.58643, 27.3500385, 4324.68018, 0, 0, -1, 0, 1, 0, 1, 0, 0)
-            CFrameMon1 = CFrame.new(-4806.26806640625, 20.65203285217285+40, 3998.07568359375)
-            CFrameMon2 = CFrame.new(-4994.1552734375, 20.65203285217285+40, 3948.1748046875)
-            CFrameMon3 = CFrame.new(-4921.9423828125, 20.65203285217285+40, 4084.2587890625)
-            CFrameMon4 = CFrame.new(-5119.95703125, 20.65203285217285+40, 4059.155517578125)
-            CFrameMon5 = CFrame.new(-4614.0009765625, 20.65203285217285+40, 4416.42333984375)
-            CFrameMon6 = CFrame.new(-4636.09033203125, 20.65203285217285+40, 4553.8046875)
-            CFrameMon7 = CFrame.new(-4810.64599609375, 20.65203285217285+40, 4541.19873046875)
-            CFrameMon8 = CFrame.new(-4874.17626953125, 20.65203285217285+40, 4659.4990234375)
+            CFrameMon = CFrame.new(-4923.693359375, 61.0307502746582, 4119.73193359375)
+            CFrameMon1 = CFrame.new(-4733.5927734375, 54.690433502197266, 4447.373046875)
             if Lv >= 130 then
                 _G.SelectBoss = "Vice Admiral"
             end
@@ -598,28 +532,14 @@ function CheckLevel()
             QuestLv = 1
             NameMon = "Sky Bandit"
             CFrameQ = CFrame.new(-4839.53027, 716.368591, -2619.44165, 0.866007268, 0, 0.500031412, 0, 1, 0, -0.500031412, 0, 0.866007268)
-            CFrameMon1 = CFrame.new(-4861.58837890625, 278.06524658203125+40, -2906.38037109375)
-            CFrameMon2 = CFrame.new(-4946.23876953125, 278.06610107421875+40, -2780.7841796875)
-            CFrameMon3 = CFrame.new(-5120.37939453125, 278.06842041015625+40, -2810.72607421875)
-            CFrameMon4 = CFrame.new(-5081.54345703125, 278.0681457519531+40, -2942.20654296875)
-            CFrameMon5 = CFrame.new(-4861.58837890625, 278.06524658203125+40, -2906.38037109375)
-            CFrameMon6 = CFrame.new(-4946.23876953125, 278.06610107421875+40, -2780.7841796875)
-            CFrameMon7 = CFrame.new(-5120.37939453125, 278.06842041015625+40, -2810.72607421875)
-            CFrameMon8 = CFrame.new(-5081.54345703125, 278.0681457519531+40, -2942.20654296875)
+            CFrameMon = CFrame.new(-4955.05908203125, 296.0874328613281, -2899.822021484375)
         elseif Lv == 175 or Lv <= 190 or SelectMonster == "Dark Master" then -- Dark Master
             Ms = "Dark Master"
             NameQuest = "SkyQuest"
             QuestLv = 2
             NameMon = "Dark Master"
             CFrameQ = CFrame.new(-4839.53027, 716.368591, -2619.44165, 0.866007268, 0, 0.500031412, 0, 1, 0, -0.500031412, 0, 0.866007268)
-            CFrameMon1 = CFrame.new(-5232.33349609375, 388.6519470214844+40, -2370.094970703125)
-            CFrameMon2 = CFrame.new(-5166.5615234375, 388.6519470214844+40, -2242.56103515625)
-            CFrameMon3 = CFrame.new(-5243.41455078125, 388.6519470214844+40, -2156.603515625)
-            CFrameMon4 = CFrame.new(-5338.81884765625, 388.6519470214844+40, -2260.91650390625)
-            CFrameMon5 = CFrame.new(-5232.33349609375, 388.6519470214844+40, -2370.094970703125)
-            CFrameMon6 = CFrame.new(-5166.5615234375, 388.6519470214844+40, -2242.56103515625)
-            CFrameMon7 = CFrame.new(-5243.41455078125, 388.6519470214844+40, -2156.603515625)
-            CFrameMon8 = CFrame.new(-5338.81884765625, 388.6519470214844+40, -2260.91650390625)
+            CFrameMon = CFrame.new(-5225.28125, 430.2355041503906, -2277.6142578125)
             SelectMonster = "Sky Bandit"
         elseif Lv == 190 or Lv <= 209 and SelectMonster == "Prisoner" then
             Ms = "Prisoner"
@@ -627,28 +547,14 @@ function CheckLevel()
             NameQuest = "PrisonerQuest"
             NameMon = "Prisoner"
             CFrameQ = CFrame.new(5308.93115, 1.65517521, 475.120514, -0.0894274712, -5.00292918e-09, -0.995993316, 1.60817859e-09, 1, -5.16744869e-09, 0.995993316, -2.06384709e-09, -0.0894274712)
-            CFrameMon1 = CFrame.new(5350.1787109375, 1.6334410905838013+40, 388.7147216796875)
-            CFrameMon2 = CFrame.new(5221.408203125, 1.6341384649276733+40, 448.60833740234375)
-            CFrameMon3 = CFrame.new(5088.845703125, 1.6715176105499268+40, 425.63763427734375)
-            CFrameMon4 = CFrame.new(5064.70849609375, 1.6325534582138062+40, 546.593505859375)
-            CFrameMon5 = CFrame.new(4936.69775390625, 1.632628321647644+40, 650.6769409179688)
-            CFrameMon6 = CFrame.new(4936.69775390625, 1.632628321647644+40, 650.6769409179688)
-            CFrameMon7 = CFrame.new(4936.69775390625, 1.632628321647644+40, 650.6769409179688)
-            CFrameMon8 = CFrame.new(4936.69775390625, 1.632628321647644+40, 650.6769409179688)
+            CFrameMon = CFrame.new(5196.0791015625, 88.99527740478516, 488.6183166503906)
         elseif Lv == 210 or Lv <= 249 or SelectMonster == "Dangerous Prisoner" then
             Ms = "Dangerous Prisoner"
             QuestLv = 2
             NameQuest = "PrisonerQuest"
             NameMon = "Dangerous Prisoner"
             CFrameQ = CFrame.new(5308.93115, 1.65517521, 475.120514, -0.0894274712, -5.00292918e-09, -0.995993316, 1.60817859e-09, 1, -5.16744869e-09, 0.995993316, -2.06384709e-09, -0.0894274712)
-            CFrameMon1 = CFrame.new(5482.27392578125, 1.6511272192001343+40, 469.4695739746094)
-            CFrameMon2 = CFrame.new(5551.83642578125, 1.6520428657531738+40, 586.2621459960938)
-            CFrameMon3 = CFrame.new(5650.1103515625, 1.653846263885498+40, 765.012939453125)
-            CFrameMon4 = CFrame.new(5558.4833984375, 1.6507247686386108+40, 962.8629150390625)
-            CFrameMon5 = CFrame.new(5439.64013671875, 1.6496928930282593+40, 1080.1236572265625)
-            CFrameMon6 = CFrame.new(5097.1142578125, 1.6509758234024048+40, 1055.196533203125)
-            CFrameMon7 = CFrame.new(4957.169921875, 1.6516176462173462+40, 919.9663696289062)
-            CFrameMon8 = CFrame.new(4957.169921875, 1.6516176462173462+40, 919.9663696289062)
+            CFrameMon = CFrame.new(5379.958984375, 88.99483489990234, 1008.5199584960938)
             if Lv >= 240 then
                 _G.SelectBoss = "Swan"
                 
@@ -665,42 +571,21 @@ function CheckLevel()
             QuestLv = 1
             NameMon = "Toga Warrior"
             CFrameQ = CFrame.new(-1576.11743, 7.38933945, -2983.30762, 0.576966345, 1.22114863e-09, 0.816767931, -3.58496594e-10, 1, -1.24185606e-09, -0.816767931, 4.2370063e-10, 0.576966345)
-            CFrameMon1 = CFrame.new(-1675.2734375, 7.286351680755615+40, -2681.58740234375)
-            CFrameMon2 = CFrame.new(-1838.6986083984375, 7.289072513580322+40, -2668.1875)
-            CFrameMon3 = CFrame.new(-2058.825439453125, 7.289072513580322+40, -2713.903564453125)
-            CFrameMon4 = CFrame.new(-2128.888671875, 7.289072513580322+40, -2853.470947265625)
-            CFrameMon5 = CFrame.new(-1796.3717041015625, 7.442544937133789+40, -2854.753173828125)
-            CFrameMon6 = CFrame.new(-1796.3717041015625, 7.442544937133789+40, -2854.753173828125)
-            CFrameMon7 = CFrame.new(-1796.3717041015625, 7.442544937133789+40, -2854.753173828125)
-            CFrameMon8 = CFrame.new(-1796.3717041015625, 7.442544937133789+40, -2854.753173828125)
+            CFrameMon = CFrame.new(-1819.1649169921875, 51.94740676879883, -2739.3740234375)
         elseif Lv == 300 or Lv <= 324 or SelectMonster == "Military Soldier" then -- Military Soldier
             Ms = "Military Soldier"
             NameQuest = "MagmaQuest"
             QuestLv = 1
             NameMon = "Military Soldier"
             CFrameQ = CFrame.new(-5316.55859, 12.2370615, 8517.2998, 0.588437557, -1.37880001e-08, -0.808542669, -2.10116209e-08, 1, -3.23446478e-08, 0.808542669, 3.60215964e-08, 0.588437557)
-            CFrameMon1 = CFrame.new(-5284.8388671875, 8.990673065185547+40, 8661.0390625)
-            CFrameMon2 = CFrame.new(-5412.69287109375, 8.590673446655273+40, 8587.8193359375)
-            CFrameMon3 = CFrame.new(-5438.95849609375, 8.590673446655273+40, 8346.1171875)
-            CFrameMon4 = CFrame.new(-5569.94775390625, 8.590673446655273+40, 8328.775390625)
-            CFrameMon5 = CFrame.new(-5667.763671875, 8.590673446655273+40, 8429.0361328125)
-            CFrameMon6 = CFrame.new(-5667.763671875, 8.590673446655273+40, 8429.0361328125)
-            CFrameMon7 = CFrame.new(-5667.763671875, 8.590673446655273+40, 8429.0361328125)
-            CFrameMon8 = CFrame.new(-5667.763671875, 8.590673446655273+40, 8429.0361328125)
+            CFrameMon = CFrame.new(-5514.03955078125, 63.142940521240234, 8576.841796875)
         elseif Lv == 325 or Lv <= 374 or SelectMonster == "Military Spy" then -- Military Spy
             Ms = "Military Spy"
             NameQuest = "MagmaQuest"
             QuestLv = 2
             NameMon = "Military Spy"
             CFrameQ = CFrame.new(-5316.55859, 12.2370615, 8517.2998, 0.588437557, -1.37880001e-08, -0.808542669, -2.10116209e-08, 1, -3.23446478e-08, 0.808542669, 3.60215964e-08, 0.588437557)
-            CFrameMon1 = CFrame.new(-5784.5888671875, 77.12830352783203+40, 8649.6328125)
-            CFrameMon2 = CFrame.new(-5858.59326171875, 77.23063659667969+40, 8776.634765625)
-            CFrameMon3 = CFrame.new(-5917.80078125, 77.23063659667969+40, 8844.744140625)
-            CFrameMon4 = CFrame.new(-5808.0576171875, 77.251708984375+40, 8903.1845703125)
-            CFrameMon5 = CFrame.new(-5784.5888671875, 77.12830352783203+40, 8649.6328125)
-            CFrameMon6 = CFrame.new(-5858.59326171875, 77.23063659667969+40, 8776.634765625)
-            CFrameMon7 = CFrame.new(-5917.80078125, 77.23063659667969+40, 8844.744140625)
-            CFrameMon8 = CFrame.new(-5808.0576171875, 77.251708984375+40, 8903.1845703125)
+            CFrameMon = CFrame.new(-5802.53173828125, 99.17176818847656, 8786.1982421875)
             SelectMonster = "Military Soldier"
         elseif Lv == 375 or Lv <= 399 or SelectMonster == "Fishman Warrior" then -- Fishman Warrior
             Ms = "Fishman Warrior"
@@ -708,28 +593,14 @@ function CheckLevel()
             QuestLv = 1
             NameMon = "Fishman Warrior"
             CFrameQ = CFrame.new(61122.5625, 18.4716396, 1568.16504, 0.893533468, 3.95251609e-09, 0.448996574, -2.34327455e-08, 1, 3.78297464e-08, -0.448996574, -4.43233645e-08, 0.893533468)
-            CFrameMon1 = CFrame.new(60945.5234375, 18.482818603515625+40, 1739.2591552734375)
-            CFrameMon2 = CFrame.new(60845.8671875, 18.482818603515625+40, 1647.6759033203125)
-            CFrameMon3 = CFrame.new(60789.96875, 18.471633911132812+40, 1527.054931640625)
-            CFrameMon4 = CFrame.new(60912.890625, 18.482818603515625+40, 1472.86181640625)
-            CFrameMon5 = CFrame.new(60952.8046875, 18.471633911132812+40, 1372.06591796875)
-            CFrameMon6 = CFrame.new(60843.2734375, 18.471633911132812+40, 1304.419921875)
-            CFrameMon7 = CFrame.new(60926.53515625, 18.471633911132812+40, 1181.3790283203125)
-            CFrameMon8 = CFrame.new(60926.53515625, 18.471633911132812+40, 1181.3790283203125)
+            CFrameMon = CFrame.new(60888.671875, 96.01477813720703, 1525.4569091796875)
         elseif Lv == 400 or Lv <= 449 or SelectMonster == "Fishman Commando" then -- Fishman Commando
             Ms = "Fishman Commando"
             NameQuest = "FishmanQuest"
             QuestLv = 2
             NameMon = "Fishman Commando"
             CFrameQ = CFrame.new(61122.5625, 18.4716396, 1568.16504)
-            CFrameMon1 = CFrame.new(61699.08984375, 18.471633911132812+40, 1518.89208984375)
-            CFrameMon2 = CFrame.new(61764.171875, 18.482818603515625+40, 1460.4661865234375)
-            CFrameMon3 = CFrame.new(61786.203125, 18.471633911132812+40, 1284.07275390625)
-            CFrameMon4 = CFrame.new(62050.64453125, 18.482818603515625+40, 1423.6337890625)
-            CFrameMon5 = CFrame.new(61975.34375, 18.471633911132812+40, 1615.074951171875)
-            CFrameMon6 = CFrame.new(61859.0078125, 18.471633911132812+40, 1695.760498046875)
-            CFrameMon7 = CFrame.new(61859.0078125, 18.471633911132812+40, 1695.760498046875)
-            CFrameMon8 = CFrame.new(61859.0078125, 18.471633911132812+40, 1695.760498046875)
+            CFrameMon = CFrame.new(61941.4765625, 108.8272933959961, 1559.036376953125)
             if Lv >= 425 then
                 _G.SelectBoss = "Fishman Lord"
             end
@@ -740,14 +611,7 @@ function CheckLevel()
             QuestLv = 1
             NameMon = "God's Guards"
             CFrameQ = CFrame.new(-4721.71436, 845.277161, -1954.20105)
-            CFrameMon1 = CFrame.new(-4701.5185546875, 844.2769775390625+40, -1794.988037109375)
-            CFrameMon2 = CFrame.new(-4823.76171875, 843.287109375+40, -1781.209228515625)
-            CFrameMon3 = CFrame.new(-4862.9072265625, 843.287109375+40, -1916.7386474609375)
-            CFrameMon4 = CFrame.new(-4823.16259765625, 843.287109375+40, -2056.5205078125)
-            CFrameMon5 = CFrame.new(-4616.20068359375, 843.287109375+40, -2040.7489013671875)
-            CFrameMon6 = CFrame.new(-4582.03515625, 843.287109375+40, -1941.2008056640625)
-            CFrameMon7 = CFrame.new(-4582.03515625, 843.287109375+40, -1941.2008056640625)
-            CFrameMon8 = CFrame.new(-4582.03515625, 843.287109375+40, -1941.2008056640625)
+            CFrameMon = CFrame.new(-4714.62744140625, 853.1715087890625, -1938.22705078125)
             if Lv >= 425 then
                 _G.SelectBoss = "Fishman Lord"
             end
@@ -758,14 +622,7 @@ function CheckLevel()
             QuestLv = 2
             NameMon = "Shanda"
             CFrameQ = CFrame.new(-7859.09814, 5544.19043, -381.476196, -0.422592998, 0, 0.906319618, 0, 1, 0, -0.906319618, 0, -0.422592998)
-            CFrameMon1 = CFrame.new(-7791.04638671875, 5545.49169921875+40, -488.8955383300781)
-            CFrameMon2 = CFrame.new(-7723.7841796875, 5545.49169921875+40, -587.0575561523438)
-            CFrameMon3 = CFrame.new(-7594.61279296875, 5545.49169921875+40, -652.351806640625)
-            CFrameMon4 = CFrame.new(-7540.0439453125, 5545.49169921875+40, -515.7664184570312)
-            CFrameMon5 = CFrame.new(-7566.55517578125, 5545.49169921875+40, -416.1830139160156)
-            CFrameMon6 = CFrame.new(-7713.80029296875, 5545.49169921875+40, -338.3591003417969)
-            CFrameMon7 = CFrame.new(-7713.80029296875, 5545.49169921875+40, -338.3591003417969)
-            CFrameMon8 = CFrame.new(-7713.80029296875, 5545.49169921875+40, -338.3591003417969)
+            CFrameMon = CFrame.new(-7687.64501953125, 5601.17236328125, -441.61865234375)
             if Lv >= 500 then
                 _G.SelectBoss = "Wysper"
             end
@@ -776,14 +633,7 @@ function CheckLevel()
             QuestLv = 1
             NameMon = "Royal Squad"
             CFrameQ = CFrame.new(-7906.81592, 5634.6626, -1411.99194, 0, 0, -1, 0, 1, 0, 1, 0, 0)
-            CFrameMon1 = CFrame.new(-7841.76123046875, 5606.876953125+40, -1404.2388916015625)
-            CFrameMon2 = CFrame.new(-7721.37451171875, 5606.876953125+40, -1508.4566650390625)
-            CFrameMon3 = CFrame.new(-7525.01708984375, 5606.876953125+40, -1544.11279296875)
-            CFrameMon4 = CFrame.new(-7511.6396484375, 5606.876953125+40, -1415.096435546875)
-            CFrameMon5 = CFrame.new(-7673.81201171875, 5606.876953125+40, -1380.596923828125)
-            CFrameMon6 = CFrame.new(-7673.81201171875, 5606.876953125+40, -1380.596923828125)
-            CFrameMon7 = CFrame.new(-7673.81201171875, 5606.876953125+40, -1380.596923828125)
-            CFrameMon8 = CFrame.new(-7673.81201171875, 5606.876953125+40, -1380.596923828125)
+            CFrameMon = CFrame.new(-7631.80078125, 5637.423828125, -1435.3065185546875)
             SelectMonster = "Shanda"
         elseif Lv == 550 or Lv <= 624 or SelectMonster == "Royal Soldier" then -- Royal Soldier
             Ms = "Royal Soldier"
@@ -791,14 +641,7 @@ function CheckLevel()
             QuestLv = 2
             NameMon = "Royal Soldier"
             CFrameQ = CFrame.new(-7906.81592, 5634.6626, -1411.99194, 0, 0, -1, 0, 1, 0, 1, 0, 0)
-            CFrameMon1 = CFrame.new(-7935.39501953125, 5606.876953125+40, -1624.7528076171875)
-            CFrameMon2 = CFrame.new(-7917.07275390625, 5606.876953125+40, -1720.010009765625)
-            CFrameMon3 = CFrame.new(-7947.041015625, 5606.876953125+40, -1824.520751953125)
-            CFrameMon4 = CFrame.new(-7759.86962890625, 5606.876953125+40, -1862.9268798828125)
-            CFrameMon5 = CFrame.new(-7764.90966796875, 5606.87744140625+40, -1722.2987060546875)
-            CFrameMon6 = CFrame.new(-7764.90966796875, 5606.87744140625+40, -1722.2987060546875)
-            CFrameMon7 = CFrame.new(-7764.90966796875, 5606.87744140625+40, -1722.2987060546875)
-            CFrameMon8 = CFrame.new(-7764.90966796875, 5606.87744140625+40, -1722.2987060546875)
+            CFrameMon = CFrame.new(-7860.97998046875, 5662.5859375, -1707.573974609375)
             if Lv >= 575 then
                 _G.SelectBoss = "Thunder God"
             end
@@ -809,28 +652,14 @@ function CheckLevel()
             QuestLv = 1
             NameMon = "Galley Pirate"
             CFrameQ = CFrame.new(5259.81982, 37.3500175, 4050.0293, 0.087131381, 0, 0.996196866, 0, 1, 0, -0.996196866, 0, 0.087131381)
-            CFrameMon1 = CFrame.new(5350.0185546875, 38.5008544921875+40, 3956.221923828125)
-            CFrameMon2 = CFrame.new(5479.8955078125, 51.69243621826172+40, 4052.640380859375)
-            CFrameMon3 = CFrame.new(5518.19677734375, 38.5008544921875+40, 3934.01416015625)
-            CFrameMon4 = CFrame.new(5651.70263671875, 38.501129150390625+40, 3914.716796875)
-            CFrameMon5 = CFrame.new(5714.89208984375, 53.31098175048828+40, 4032.6318359375)
-            CFrameMon6 = CFrame.new(5833.47265625, 38.5008544921875+40, 3913.85107421875)
-            CFrameMon7 = CFrame.new(5833.47265625, 38.5008544921875+40, 3913.85107421875)
-            CFrameMon8 = CFrame.new(5833.47265625, 38.5008544921875+40, 3913.85107421875)
+            CFrameMon = CFrame.new(5556.74462890625, 152.6445770263672, 3999.6875)
         elseif Lv >= 650 or SelectMonster == "Galley Captain" then -- Galley Captain
             Ms = "Galley Captain"
             NameQuest = "FountainQuest"
             QuestLv = 2
             NameMon = "Galley Captain"
             CFrameQ = CFrame.new(5259.81982, 37.3500175, 4050.0293, 0.087131381, 0, 0.996196866, 0, 1, 0, -0.996196866, 0, 0.087131381)
-            CFrameMon1 = CFrame.new(5339.81396484375, 38.84409713745117+40, 4925.99609375)
-            CFrameMon2 = CFrame.new(5417.36865234375, 58.16657638549805+40, 4786.052734375)
-            CFrameMon3 = CFrame.new(5579.6884765625, 52.418670654296875+40, 4862.96728515625)
-            CFrameMon4 = CFrame.new(5561.59033203125, 38.8443717956543+40, 5001.048828125)
-            CFrameMon5 = CFrame.new(5887.33349609375, 38.84409713745117+40, 4949.6767578125)
-            CFrameMon6 = CFrame.new(5806.2607421875, 52.24956130981445+40, 4833.1142578125)
-            CFrameMon7 = CFrame.new(5915.357421875, 53.31882858276367+40, 4763.46728515625)
-            CFrameMon8 = CFrame.new(5971.5478515625, 38.8443717956543+40, 4869.3935546875)
+            CFrameMon = CFrame.new(5678.32275390625, 93.10353088378906, 4966.27392578125)
             if Lv >= 675 then
                 _G.SelectBoss = "Cyborg"
             end
@@ -1947,40 +1776,6 @@ local FindBartilo1 = {"Swan Pirate"}
 local FindBartilo2 = {"Jeremy"}
 local FindIndraWorld3Quest = {"rip_indra"}
 
-spawn(function()
-    while task.wait() do
-        pcall(function()
-            CheckLevel()
-            if CFrameMon == nil then
-                CFrameMon = CFrameMon1
-            end
-            if (CFrameMon1.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
-                CFrameMon = CFrameMon2
-            end
-            if (CFrameMon2.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
-                CFrameMon = CFrameMon3
-            end
-            if (CFrameMon3.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
-                CFrameMon = CFrameMon4
-            end
-            if (CFrameMon4.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
-                CFrameMon = CFrameMon5
-            end
-            if (CFrameMon5.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
-                CFrameMon = CFrameMon6
-            end
-            if (CFrameMon6.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
-                CFrameMon = CFrameMon7
-            end
-            if (CFrameMon7.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
-                CFrameMon = CFrameMon8
-            end
-            if (CFrameMon8.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
-                CFrameMon = CFrameMon1
-            end
-        end)
-    end
-end)
 function NPCPos()
     for i,v in pairs(require(game:GetService("ReplicatedStorage").GuideModule)["Data"]["NPCList"]) do
 		if v["NPCName"] == require(game:GetService("ReplicatedStorage").GuideModule)["Data"]["LastClosestNPC"] then
