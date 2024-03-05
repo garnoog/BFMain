@@ -1106,7 +1106,6 @@ function CheckLevel()
     end
 end --Fix not Complete
 function Warp(p)
-    StopTween()
 	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = p
 end
 function TP(p)
@@ -1151,9 +1150,45 @@ function TP(p)
             game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(-4607.82275, 872.54248, -1667.55688)) --Sky1
         end
     end
-        local Distance = (p.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-    	game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/300, Enum.EasingStyle.Linear),{CFrame = p}):Play()
+        --local Distance = (p.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+    	--game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/300, Enum.EasingStyle.Linear),{CFrame = p}):Play()
     	--game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.X, p.Y, game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.Z)
+    local RealtargetPos = {p}
+	local targetPos = RealtargetPos[1]
+	local RealTarget
+	if type(targetPos) == "vector" then
+		RealTarget = CFrame.new(targetPos)
+	elseif type(targetPos) == "userdata" then
+		RealTarget = targetPos
+	elseif type(targetPos) == "number" then
+		RealTarget = CFrame.new(unpack(RealtargetPos))
+	end
+
+	if game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health == 0 then if tween then tween:Cancel() end repeat wait() until game.Players.LocalPlayer.Character:WaitForChild("Humanoid").Health > 0; wait(0.2) end
+
+	local tweenfunc = {}
+	local Distance = (RealTarget.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude
+	if Distance < 1000 then
+		Speed = 315
+	elseif Distance >= 1000 then
+		Speed = 300
+	end
+    local tween_s = game:service"TweenService"
+	local info = TweenInfo.new((RealTarget.Position - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude/Speed, Enum.EasingStyle.Linear)
+	local tweenw, err = pcall(function()
+		tween = tween_s:Create(game.Players.LocalPlayer.Character["HumanoidRootPart"], info, {CFrame = RealTarget})
+		tween:Play()
+	end)
+
+	function tweenfunc:Stop()
+		tween:Cancel()
+	end 
+
+	function tweenfunc:Wait()
+		tween.Completed:Wait()
+	end 
+
+	return tweenfunc
 end
 
 function StopTween()
