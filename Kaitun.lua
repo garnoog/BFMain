@@ -1951,25 +1951,32 @@ spawn(function()
     while task.wait() do
         pcall(function()
             CheckLevel()
-            if CFrameMonN == nil then
-                CFrameMonN = CFrameMon1
+            if CFrameMon == nil then
+                CFrameMon = CFrameMon1
             end
             if (CFrameMon1.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
-                CFrameMonN = CFrameMon2
-            elseif (CFrameMon2.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
-                CFrameMonN = CFrameMon3
-            elseif (CFrameMon3.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
-                CFrameMonN = CFrameMon4
-            elseif (CFrameMon4.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
-                CFrameMonN = CFrameMon5
-            elseif (CFrameMon5.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
-                CFrameMonN = CFrameMon6
-            elseif (CFrameMon6.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
-                CFrameMonN = CFrameMon7
-            elseif (CFrameMon7.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
-                CFrameMonN = CFrameMon8
-            elseif (CFrameMon8.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
-                CFrameMonN = CFrameMon1
+                CFrameMon = CFrameMon2
+            end
+            if (CFrameMon2.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
+                CFrameMon = CFrameMon3
+            end
+            if (CFrameMon3.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
+                CFrameMon = CFrameMon4
+            end
+            if (CFrameMon4.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
+                CFrameMon = CFrameMon5
+            end
+            if (CFrameMon5.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
+                CFrameMon = CFrameMon6
+            end
+            if (CFrameMon6.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
+                CFrameMon = CFrameMon7
+            end
+            if (CFrameMon7.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
+                CFrameMon = CFrameMon8
+            end
+            if (CFrameMon8.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
+                CFrameMon = CFrameMon1
             end
         end)
     end
@@ -2150,7 +2157,7 @@ function FarmLevelOO()
                     Attack = nil
                 else
                     _G.Doing = "Wait Monster Level"
-                    TP(CFrameMonN)
+                    TP(CFrameMon)
                 end
             end
 		end
