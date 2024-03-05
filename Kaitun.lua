@@ -2016,30 +2016,23 @@ spawn(function()
             if CFrameMonN == nil then
                 CFrameMonN = CFrameMon1
             end
-            repeat task.wait()
-                CFrameMonN = CFrameMon1
-            until (CFrameMon1.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
-            repeat task.wait()
+            if (CFrameMon1.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
                 CFrameMonN = CFrameMon2
-            until (CFrameMon2.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
-            repeat task.wait()
+            elseif (CFrameMon2.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
                 CFrameMonN = CFrameMon3
-            until (CFrameMon3.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
-            repeat task.wait()
+            elseif (CFrameMon3.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
                 CFrameMonN = CFrameMon4
-            until (CFrameMon4.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
-            repeat task.wait()
+            elseif (CFrameMon4.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
                 CFrameMonN = CFrameMon5
-            until (CFrameMon5.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
-            repeat task.wait()
+            elseif (CFrameMon5.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
                 CFrameMonN = CFrameMon6
-            until (CFrameMon6.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
-            repeat task.wait()
+            elseif (CFrameMon6.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
                 CFrameMonN = CFrameMon7
-            until (CFrameMon7.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
-            repeat task.wait()
+            elseif (CFrameMon7.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
                 CFrameMonN = CFrameMon8
-            until (CFrameMon8.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+            elseif (CFrameMon8.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
+                CFrameMonN = CFrameMon1
+            end
         end)
     end
 end)
