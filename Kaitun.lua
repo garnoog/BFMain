@@ -1,5 +1,7 @@
 print("Kaitun Loader | Ver 1")
 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/garnoog/BFMain/main/UIKaitun.lua"))()
+
 local Notify_DM = Instance.new("ScreenGui")
 local NotifyList = Instance.new("Frame")
 local UIListLayout = Instance.new("UIListLayout")
@@ -2014,30 +2016,30 @@ spawn(function()
             if CFrameMonN == nil then
                 CFrameMonN = CFrameMon1
             end
-            if (CFrameMon1.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
-                CFrameMonN = CFrameMon2
-            end
-            if (CFrameMon2.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
-                CFrameMonN = CFrameMon3
-            end
-            if (CFrameMon3.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
-                CFrameMonN = CFrameMon4
-            end
-            if (CFrameMon4.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
-                CFrameMonN = CFrameMon5
-            end
-            if (CFrameMon5.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
-                CFrameMonN = CFrameMon6
-            end
-            if (CFrameMon6.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
-                CFrameMonN = CFrameMon7
-            end
-            if (CFrameMon7.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
-                CFrameMonN = CFrameMon8
-            end
-            if (CFrameMon8.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10 then
+            repeat task.wait()
                 CFrameMonN = CFrameMon1
-            end
+            until (CFrameMon1.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+            repeat task.wait()
+                CFrameMonN = CFrameMon2
+            until (CFrameMon2.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+            repeat task.wait()
+                CFrameMonN = CFrameMon3
+            until (CFrameMon3.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+            repeat task.wait()
+                CFrameMonN = CFrameMon4
+            until (CFrameMon4.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+            repeat task.wait()
+                CFrameMonN = CFrameMon5
+            until (CFrameMon5.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+            repeat task.wait()
+                CFrameMonN = CFrameMon6
+            until (CFrameMon6.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+            repeat task.wait()
+                CFrameMonN = CFrameMon7
+            until (CFrameMon7.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
+            repeat task.wait()
+                CFrameMonN = CFrameMon8
+            until (CFrameMon8.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
         end)
     end
 end)
@@ -2137,7 +2139,7 @@ function FarmLevelOO()
                 CheckQuestBoss()
                 repeat wait()
                     _G.Doing = "Get Quest Level"
-                    TP3(CFrameQBoss)
+                    TP(CFrameQBoss)
                 until (CFrameQBoss.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuestBoss, QuestLvBoss)
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
@@ -2146,7 +2148,7 @@ function FarmLevelOO()
                 CheckLevel()
                 repeat wait()
                     _G.Doing = "Get Quest Level"
-                    TP3(CFrameQ)
+                    TP(CFrameQ)
                 until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
@@ -2157,7 +2159,7 @@ function FarmLevelOO()
                 CheckLevel()
                 repeat wait()
                     _G.Doing = "Get Quest Level"
-                    TP3(CFrameQ)
+                    TP(CFrameQ)
                 until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("StartQuest", NameQuest, QuestLv)
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
