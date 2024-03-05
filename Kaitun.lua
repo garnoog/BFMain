@@ -432,9 +432,6 @@ end
 
 function CheckLevel()
     local Lv = game:GetService("Players").LocalPlayer.Data.Level.Value
-    if _G.Upto then
-        Lv = Lv + 100
-    end
     if W1 then
         if Lv == 1 or Lv <= 9 or SelectMonster == "Bandit" then -- Bandit
             Ms = "Bandit"
