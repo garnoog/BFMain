@@ -2142,7 +2142,7 @@ function FarmLevelOO()
                 game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
                 _G.Farm_Boss = true
             elseif SelectMonster ~= nil then
-                CheckLevel2()
+                CheckLevel()
                 repeat wait()
                     TP3(CFrameQ)
                 until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
@@ -2152,7 +2152,7 @@ function FarmLevelOO()
                 _G.Farm_Mon = nil
             else
                 StatrMagnet = nil
-                CheckLevel2()
+                CheckLevel()
                 repeat wait()
                     TP3(CFrameQ)
                 until (CFrameQ.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude < 10
